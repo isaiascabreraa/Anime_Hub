@@ -33,8 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
                 src={logo_path} 
                 alt='Logo AnimeHub'
                 width={120}
-                height={120}>
-              </Image>
+                height={120}/>
             </picture>
 
             <p>AnimeHub</p>
@@ -53,13 +52,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
             src='/Multimedia/Icons/login_icon.svg'
             alt='Login Icon'
             width={50}
-            height={50}>
-
-            </Image>
+            height={50}/>
           </Link>
-
-
         </nav>
+        
       </header>
 
       {children}
