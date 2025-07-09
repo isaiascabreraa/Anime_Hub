@@ -1,5 +1,5 @@
 
-import Image from 'next/image';
+import AnimeShowcase from "@/components/AnimeShowcase";
 import { fetchSeasonalAnimes } from "@/api/anime_data";
 
 export default async function SeasonalAnimes() {
@@ -7,21 +7,9 @@ export default async function SeasonalAnimes() {
     const res = await fetchSeasonalAnimes('spring');
     const seasonalAnimes = res.data.map((entry) => entry.node);
 
-    return(
-        <section>
-            <h2>Seasonal Animes</h2>
-            <div className='flex flex-wrap gap-20'>
-                {seasonalAnimes.map((anime) => (
-                    <div key={anime.id}>
-                        <Image 
-                            src={anime.main_picture?.medium}
-                            alt=''
-                            width={150}
-                            height={150}/>
-                    </div>
-                ))}
-            </div>
-
+    return (
+        <section className='flex flex-col items-center gap-5'>
+          <AnimeShowcase items={seasonalAnimes}/>
         </section>
-    );
+      );
 }

@@ -49,9 +49,12 @@ export async function fetchAnimeDescription(anime_id: number) {
 //Post: -
 export async function fetchSeasonalAnimes(season: string) {
     const CLIENT_ID = process.env.MAL_CLIENT_ID!;
+
+    const fields = `title,main_picture,related_anime,start_date,end_date,source,genres,studio,
+    mean,status,rank,num_episodes,studios,media_type,average_episode_duration`
     
         const response = await fetch(
-          `https://api.myanimelist.net/v2/anime/season/2025/${season}?limit=20&fields=title,main_picture,mean,rank`,
+          `https://api.myanimelist.net/v2/anime/season/2025/${season}?limit=20&fields=${fields}`,
           {
             headers: {
               'X-MAL-CLIENT-ID': CLIENT_ID

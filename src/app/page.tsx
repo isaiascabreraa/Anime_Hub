@@ -1,21 +1,17 @@
 
-import Image from 'next/image';
 import SeasonalAnimes from '@/components/SeasonalAnime';
 
 export default function Home() {
   return (
-    <section>
-      <p>Inicio de AnimeHub</p>
-      <Image 
-        src={'/Multimedia/Branding/AnimeHub_logo.png'} 
-        alt={'Logo from AnimeHub'} 
-        width={300}
-        height={300}/>
 
-    <div>
-      <SeasonalAnimes />
-    </div>
+    <main>
 
-    </section>
+      <section className='p-5 flex flex-col gap-5 bg-gray-200'>
+          <h1 className='text-5xl text-center text-black'>Seasonal Animes</h1>
+          <SeasonalAnimes />
+        </section>
+
+    </main>
+
   );
 }
