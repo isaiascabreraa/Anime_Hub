@@ -5,26 +5,53 @@ import type { AnimeApiResponse } from '@/utils/definition';
 //Post: -
 export async function fetchTopAnimes() {
     const CLIENT_ID = process.env.MAL_CLIENT_ID!;
+
+    const fields = `title,main_picture,related_anime,start_date,end_date,source,genres,studio,
+    mean,status,rank,num_episodes,studios,media_type,average_episode_duration`
     
-        const response = await fetch(
-          'https://api.myanimelist.net/v2/anime/ranking?ranking_type=all&limit=20&fields=title,main_picture,mean,rank',
-          {
-            headers: {
-              'X-MAL-CLIENT-ID': CLIENT_ID
-            }
-          }
-        );
-        const data: AnimeApiResponse = await response.json();
-        return data;
+    const response = await fetch(
+      `https://api.myanimelist.net/v2/anime/ranking?ranking_type=all&limit=20&fields=${fields}`,
+      {
+        headers: {
+          'X-MAL-CLIENT-ID': CLIENT_ID
+        }
+      }
+    );
+
+    const data: AnimeApiResponse = await response.json();
+    return data;
 }
 
 //Pre: -
 //Post: -
-export async function fetchSeasonalAnimes() {
+export async function fetchAnimeDescription(anime_id: number) {
+  
+    const CLIENT_ID = process.env.MAL_CLIENT_ID!;
+    const fields = `id,title,main_picture,alternative_titles,start_date,end_date,synopsis,
+    mean,rank,popularity,num_list_users,num_scoring_users,nsfw,created_at,updated_at,media_type,
+    status,genres,my_list_status,num_episodes,start_season,broadcast,source,average_episode_duration,
+    rating,pictures,background,related_anime,related_manga,recommendations,studios,statistics`;
+    
+    const response = await fetch(
+      `https://api.myanimelist.net/v2/anime/${anime_id}?fields=${fields}`,
+            {
+              headers: {
+                'X-MAL-CLIENT-ID': CLIENT_ID
+              }
+            }
+    );
+
+    const data = await response.json()
+    return data;
+}
+
+//Pre: -
+//Post: -
+export async function fetchSeasonalAnimes(season: string) {
     const CLIENT_ID = process.env.MAL_CLIENT_ID!;
     
         const response = await fetch(
-          'https://api.myanimelist.net/v2/anime/season/2025/summer?limit=20&fields=title,main_picture,mean,rank',
+          `https://api.myanimelist.net/v2/anime/season/2025/${season}?limit=20&fields=title,main_picture,mean,rank`,
           {
             headers: {
               'X-MAL-CLIENT-ID': CLIENT_ID

@@ -4,7 +4,7 @@ import { fetchSeasonalAnimes } from "@/api/anime_data";
 
 export default async function SeasonalAnimes() {
 
-    const res = await fetchSeasonalAnimes();
+    const res = await fetchSeasonalAnimes('spring');
     const seasonalAnimes = res.data.map((entry) => entry.node);
 
     return(
