@@ -1,11 +1,13 @@
 
 import { ApiResponse, Anime } from '@/utils/definition';
-import ItemShowcase from './ItemShowcase';
 import { fetchSeasonalAnimes } from "@/api/anime_data";
+import ItemShowcase from './ItemShowcase';
 
-export default async function SeasonalAnimes() {
+export default async function SeasonalAnimes({ searchParams }: { searchParams?: { season?: string } } ) {
 
-    const res = await fetchSeasonalAnimes('spring');
+    console.log(`El params obtenido es: ${searchParams}`)
+
+    const res = await fetchSeasonalAnimes(searchParams?.season || 'spring');
     const seasonalAnimes = (res as ApiResponse<Anime>).data.map((entry) => entry.node);
 
     return (

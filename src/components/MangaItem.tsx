@@ -23,8 +23,8 @@ export default function AnimeItem(manga: Manga) {
                     width={200}
                     height={200}/>
                 <div className='p-5 w-50 flex flex-col text-black'>
-                    <p> Chapters:  {manga.num_chapters === 0 ? 'No data' : manga.num_chapters}</p>
-                    <p> Volumenes: {manga.num_volumes === 0 ? 'No data' : manga.num_volumes}</p>
+                    <p> Chapters:  {manga.num_chapters === 0 ? '-' : manga.num_chapters}</p>
+                    <p> Volumenes: {manga.num_volumes === 0 ? '-' : manga.num_volumes}</p>
                     <p> Type: {formatText(manga.media_type)}</p>
                 </div>
             </div>

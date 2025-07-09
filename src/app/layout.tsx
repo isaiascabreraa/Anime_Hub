@@ -41,6 +41,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
         </div>
 
         <nav className='flex items-center gap-10'>
+          <Link href='/anime/seasonal'>
+            <p className='text-2xl'>Seasonal Animes </p>
+          </Link>
           <Link href={'/anime'}>
             <p className='text-2xl'>Top Animes</p>
           </Link>

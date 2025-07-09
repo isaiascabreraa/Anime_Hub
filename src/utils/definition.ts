@@ -1,4 +1,8 @@
 
+export type Season = {
+  type: string;
+}
+
 export type Genre = {
   id: number;
   name: string;

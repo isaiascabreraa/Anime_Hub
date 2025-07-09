@@ -50,6 +50,8 @@ export async function fetchAnimeDescription(anime_id: number) {
 export async function fetchSeasonalAnimes(season: string) {
     const CLIENT_ID = process.env.MAL_CLIENT_ID!;
 
+    console.log(`Al fetch llegó un: ${season}`)
+
     const fields = `title,main_picture,related_anime,start_date,end_date,source,genres,studio,
     mean,status,rank,num_episodes,studios,media_type,average_episode_duration`
     
