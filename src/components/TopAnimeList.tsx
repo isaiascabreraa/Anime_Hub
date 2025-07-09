@@ -1,15 +1,17 @@
 
-import AnimeShowcase from './AnimeShowcase';
-import { fetchTopAnimes } from '@/api/anime_data'
+import { ApiResponse, Anime } from '@/utils/definition';
+import ItemShowcase from './ItemShowcase';
+import { fetchTopAnimes } from '@/api/anime_data';
 
 export default async function TopAnimeList() {
+  
+const res = await fetchTopAnimes();
+const topAnimes = (res as ApiResponse<Anime>).data.map((entry) => entry.node);
 
-    const res = await fetchTopAnimes();
-    const topAnimes = res.data.map((entry) => entry.node);
 
-    return (
-    <section className='flex flex-col items-center gap-5'>
-      <AnimeShowcase items={topAnimes}/>
+  return (
+    <section className="flex flex-col items-center gap-5">
+      <ItemShowcase items={topAnimes} type="anime" />
     </section>
   );
 }

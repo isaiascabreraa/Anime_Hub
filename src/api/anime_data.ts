@@ -1,5 +1,5 @@
 
-import type { AnimeApiResponse } from '@/utils/definition';
+import type { ApiResponse, Anime } from '@/utils/definition';
 
 //Pre: -
 //Post: -
@@ -18,7 +18,7 @@ export async function fetchTopAnimes() {
       }
     );
 
-    const data: AnimeApiResponse = await response.json();
+    const data: ApiResponse<Anime> = await response.json();
     return data;
 }
 
@@ -41,7 +41,7 @@ export async function fetchAnimeDescription(anime_id: number) {
             }
     );
 
-    const data = await response.json()
+    const data: ApiResponse<Anime> = await response.json()
     return data;
 }
 
@@ -61,6 +61,6 @@ export async function fetchSeasonalAnimes(season: string) {
             }
           }
         );
-        const data: AnimeApiResponse = await response.json();
+        const data: ApiResponse<Anime> = await response.json();
         return data;
 }

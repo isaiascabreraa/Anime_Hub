@@ -9,7 +9,7 @@ export type Studio = {
   name: string;
 }
 
-export type Anime = {
+export type Item = {
   id: number;
   title: string;
   main_picture: {
@@ -18,22 +18,40 @@ export type Anime = {
   };
   start_date: string;
   end_date: string;
-  source: string;
   genres: Genre[];
-  studios: Studio[];
-  num_episodes: number;
-  average_episode_duration: number;
   media_type: string;
   mean: number;
   rank: number;
 };
+export type Anime = Item & {
+  source: string;
+  studios: Studio[];
+  num_episodes: number;
+  average_episode_duration: number;
+};
 
+export type Manga = Item & {
+  num_chapters: number;
+  num_volumes: number;
+};
+
+
+
+export type ItemType = 'anime' | 'manga';
 export type AnimeItems = {
-  items: Anime[]
-}
+  items: Anime[];
+  type: 'anime';
+};
+export type MangaItems = {
+  items: Manga[];
+  type: 'manga';
+};
 
-export type AnimeApiResponse = {
+export type Showcase = AnimeItems | MangaItems;
+
+
+export type ApiResponse<T> = {
   data: {
-    node: Anime;
+    node: T;
   }[];
 };
