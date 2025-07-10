@@ -1,6 +1,6 @@
 
 export type Season = {
-  type: string;
+  season: string;
 }
 
 export type Genre = {

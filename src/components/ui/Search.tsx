@@ -1,5 +1,5 @@
-'use client'
 
+'use client'
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
 export default function Search({ placeholder }: { placeholder: string }) {
@@ -18,12 +18,14 @@ export default function Search({ placeholder }: { placeholder: string }) {
         replace(`${pathName}?${params.toString()}`)
     }
 
+    console.log(placeholder)
+
     return(
         <div className="relative flex flex-1 flex-shrink-0">
             <label htmlFor="search" className="sr-only text-white">
                 Search
             </label>
-            <select value={placeholder}
+            <select 
             onChange={(event) => handleSeason(event.target.value)}
             className="p-2 w-full rounded-md border text-black bg-white"
             defaultValue={searchParams.get('season')?.toString()}>

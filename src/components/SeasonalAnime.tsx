@@ -1,11 +1,12 @@
 
 import { ApiResponse, Anime } from '@/utils/definition';
 import { fetchSeasonalAnimes } from "@/api/anime_data";
+import type { Season } from '@/utils/definition'
 import ItemShowcase from './ItemShowcase';
 
-export default async function SeasonalAnimes({ searchParams }: { searchParams?: { season?: string } } ) {
+export default async function SeasonalAnimes({ season }: Season ) {
 
-    const res = await fetchSeasonalAnimes(searchParams?.season || 'spring');
+    const res = await fetchSeasonalAnimes(season || 'spring');
     const seasonalAnimes = (res as ApiResponse<Anime>).data.map((entry) => entry.node);
 
     return (
