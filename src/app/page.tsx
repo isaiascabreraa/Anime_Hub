@@ -8,11 +8,9 @@ export default function Home() {
   const banner_path = '/Multimedia/Branding/Banner-Collage4.png'
 
   return (
-
     <main>
-
-      <section className='relative flex flex-col gap-5 bg-gray-200'>
-        <div className='relative w-full h-120 bg-contraste'>
+      <section className='relative flex flex-col gap-5'>
+        <div className='relative w-full h-120 '>
           <Image
             src={banner_path}
             alt='AnimeHub Banner'

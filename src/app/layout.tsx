@@ -1,10 +1,10 @@
 
-import './styles/globals.css';
-import { InterFont } from './styles/fonts';
+import '@/styles/globals.css';
+import type { Metadata } from 'next';
+import { InterFont, Russo_OneFont, Familjen_GroteskFont } from '@/styles/fonts';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import type { Metadata } from 'next';
 
 
 export const metadata: Metadata = {
@@ -19,46 +19,37 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }){
   
   const logo_path = "/Multimedia/Branding/AnimeHub_logo.png";
-   //console.log(logo_path);
 
   return (
     <html lang="en">
     <body className={`${InterFont.className} antiliased`}>
-      <header className='flex justify-between h-40 bg-orange-400'>
 
+      <header className='p-5 flex flex-col md:flex-row gap-5 bg-orange-400'>
         <div>
           <Link href={'/'} className='flex flex-col items-center text-xl text-black'>
             <picture>
-              <Image 
-                src={logo_path} 
-                alt='Logo AnimeHub'
-                width={120}
-                height={120}/>
+              <Image src={logo_path} alt='Logo AnimeHub' width={120} height={120}/>
             </picture>
 
-            <p>AnimeHub</p>
+            <p className={`text-3xl ${Russo_OneFont.className} antiliased`}>AnimeHub</p>
           </Link>
         </div>
 
-        <nav className='flex items-center gap-10'>
+        <nav className={`${Familjen_GroteskFont.className} antiliased w-full flex justify-center items-center gap-10 text-center text-black`}>
+          
           <Link href='/anime/seasonal'>
-            <p className='text-2xl'>Seasonal Animes </p>
+            <p className='p-2 rounded-xl text-2xl bg-orange-300'>Temporada Anime</p>
           </Link>
+
           <Link href={'/anime'}>
-            <p className='text-2xl'>Top Animes</p>
+            <p className='p-2 rounded-xl text-2xl bg-orange-300'>Top Animes</p>
           </Link>
+
           <Link href={'/manga'}>
-            <p className='text-2xl'>Top Mangas</p>
+            <p className='p-2 rounded-xl text-2xl bg-orange-300'>Top Mangas</p>
           </Link>
-          <Link href={'/login'}>
-            <Image
-            src='/Multimedia/Icons/login_icon.svg'
-            alt='Login Icon'
-            width={50}
-            height={50}/>
-          </Link>
+
         </nav>
-        
       </header>
 
       {children}

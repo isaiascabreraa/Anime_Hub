@@ -1,7 +1,7 @@
 
 
 import { Manga } from '@/utils/definition'
-import { formatText } from '@/utils/format'
+import { formatText, formatEmptyNumbers } from '@/utils/format'
 import Image from 'next/image'
 
 export default function AnimeItem(manga: Manga) {
@@ -23,14 +23,10 @@ export default function AnimeItem(manga: Manga) {
                     width={200}
                     height={200}/>
                 <div className='p-5 w-50 flex flex-col text-black'>
-                    <p> Chapters:  {manga.num_chapters === 0 ? '-' : manga.num_chapters}</p>
-                    <p> Volumenes: {manga.num_volumes === 0 ? '-' : manga.num_volumes}</p>
+                    <p> Chapters:  {formatEmptyNumbers(manga.num_chapters)}</p>
+                    <p> Volumenes: {formatEmptyNumbers(manga.num_volumes)}</p>
                     <p> Type: {formatText(manga.media_type)}</p>
                 </div>
-            </div>
-
-            <div className='text-black'>
-                <p>Ranking: {manga.rank} ({manga.mean} score)</p>
             </div>
         </>
     );
