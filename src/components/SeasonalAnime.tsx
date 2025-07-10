@@ -5,7 +5,6 @@ import type { Season } from '@/utils/definition'
 import ItemShowcase from './ItemShowcase';
 
 export default async function SeasonalAnimes({ season }: Season ) {
-
     const res = await fetchSeasonalAnimes(season || 'spring');
     const seasonalAnimes = (res as ApiResponse<Anime>).data.map((entry) => entry.node);
 

@@ -55,8 +55,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
       {children}
 
       <footer>
-
+        <div  className='p-10 bg-orange-400'></div>
       </footer>
+
     </body>
     </html>
   );

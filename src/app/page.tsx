@@ -24,7 +24,7 @@ export default function Home() {
         </p>
         </section>
 
-        <section>
+        <section className='p-5'>
           <h1 className='p-10 text-5xl text-center text-white'>Nuevos Animes</h1>
           <Suspense>
             <SeasonalAnimes season={season}/>

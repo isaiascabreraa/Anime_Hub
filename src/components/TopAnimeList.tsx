@@ -4,10 +4,8 @@ import ItemShowcase from './ItemShowcase';
 import { fetchTopAnimes } from '@/api/anime_data';
 
 export default async function TopAnimeList() {
-  
-const res = await fetchTopAnimes();
-const topAnimes = (res as ApiResponse<Anime>).data.map((entry) => entry.node);
-
+  const res = await fetchTopAnimes();
+  const topAnimes = (res as ApiResponse<Anime>).data.map((entry) => entry.node);
 
   return (
     <section className="flex flex-col items-center gap-5">

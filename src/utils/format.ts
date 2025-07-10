@@ -10,3 +10,7 @@ export function formatText(text: string) {
 export function formatEmptyNumbers(input: number){
   return (!input || input === 0 ? '-' : input);
 }
+
+export function formatEmptyString(input: string){
+  return (!input ? '-' : input);
+}
