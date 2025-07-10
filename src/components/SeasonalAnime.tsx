@@ -5,8 +5,6 @@ import ItemShowcase from './ItemShowcase';
 
 export default async function SeasonalAnimes({ searchParams }: { searchParams?: { season?: string } } ) {
 
-    console.log(`El params obtenido es: ${searchParams}`)
-
     const res = await fetchSeasonalAnimes(searchParams?.season || 'spring');
     const seasonalAnimes = (res as ApiResponse<Anime>).data.map((entry) => entry.node);
 

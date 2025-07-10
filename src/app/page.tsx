@@ -1,15 +1,32 @@
 
-// import SeasonalAnimes from '@/components/SeasonalAnime';
+import SeasonalAnimes from '@/components/SeasonalAnime';
+import Image from 'next/image'
 
 export default function Home() {
+
+  const banner_path = '/Multimedia/Branding/Banner-Collage4.png'
 
   return (
 
     <main>
 
-      <section className='p-5 flex flex-col gap-5 bg-gray-200'>
-          <h1 className='text-5xl text-center text-black'>Seasonal Animes</h1>
-          {/* <SeasonalAnimes type='spring' /> */}
+      <section className='relative flex flex-col gap-5 bg-gray-200'>
+        <div className='relative w-full h-120 bg-contraste'>
+          <Image
+            src={banner_path}
+            alt='AnimeHub Banner'
+            fill
+          />
+          <div className="absolute inset-0 z-10 backdrop-blur-[0.5px] brightness-60" />
+        </div>
+        <p className="absolute p-5 z-20 text-white text-xl bottom-5 left-5 bg-black">
+          ¡Nuevo animes de temporada! 
+        </p>
+        </section>
+
+        <section>
+          <h1 className='p-10 text-5xl text-center text-white'>Nuevos Animes</h1>
+          <SeasonalAnimes />
         </section>
 
     </main>
