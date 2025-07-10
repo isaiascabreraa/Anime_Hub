@@ -5,6 +5,7 @@ import { Suspense } from 'react';
 
 export default function Home() {
 
+  const season = 'spring'
   const banner_path = '/Multimedia/Branding/Banner-Collage4.png'
 
   return (
@@ -26,7 +27,7 @@ export default function Home() {
         <section>
           <h1 className='p-10 text-5xl text-center text-white'>Nuevos Animes</h1>
           <Suspense>
-            <SeasonalAnimes />
+            <SeasonalAnimes season={season}/>
           </Suspense>
         </section>
 
