@@ -1,6 +1,7 @@
 
 import SeasonalAnimes from '@/components/SeasonalAnime';
 import Image from 'next/image'
+import { Suspense } from 'react';
 
 export default function Home() {
 
@@ -26,7 +27,9 @@ export default function Home() {
 
         <section>
           <h1 className='p-10 text-5xl text-center text-white'>Nuevos Animes</h1>
-          <SeasonalAnimes />
+          <Suspense>
+            <SeasonalAnimes />
+          </Suspense>
         </section>
 
     </main>
