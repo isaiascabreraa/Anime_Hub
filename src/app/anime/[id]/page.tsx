@@ -3,9 +3,11 @@ import { fetchAnime } from '@/api/anime_data'
 import AnimeItem from '@/components/AnimeItem';
 import type {Anime } from '@/utils/definition';
 
-export default async function AnimeItemPage({ params }: { params: { id: string}}){
+export default async function AnimeItemPage({ params }: { 
+    params: { id: string}
+}){
 
-    const { id } = await params
+    const id = (await params).id
     console.log(`El ID es: ${id}`);
 
     const anime: Anime= await fetchAnime(id);
