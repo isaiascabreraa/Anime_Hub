@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main>
       <section className='relative flex flex-col gap-5'>
-        <div className='relative w-full h-120 '>
+        <div className='relative w-full h-160 '>
           <Image
             src={banner_path}
             alt='AnimeHub Banner'

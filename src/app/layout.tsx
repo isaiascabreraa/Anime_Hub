@@ -24,14 +24,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
     <html lang="en">
     <body className={`${InterFont.className} antiliased`}>
 
-      <header className='p-5 flex flex-col md:flex-row gap-5 bg-orange-400'>
+      <header className='p-5 flex flex-col md:flex-row gap-5 border-t-10 border-b-10 border-black '>
         <div>
           <Link href={'/'} className='flex flex-col items-center text-xl text-black'>
             <picture>
               <Image src={logo_path} alt='Logo AnimeHub' width={120} height={120}/>
             </picture>
 
-            <p className={`text-3xl ${Russo_OneFont.className} antiliased`}>AnimeHub</p>
+            <p className={`text-3xl text-white ${Russo_OneFont.className} antiliased`}>AnimeHub</p>
           </Link>
         </div>
 
@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
       {children}
 
       <footer>
-        <div  className='p-10 bg-orange-400'></div>
+        <div  className='p-10 '></div>
       </footer>
 
     </body>

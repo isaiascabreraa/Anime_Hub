@@ -2,6 +2,7 @@
 import { Anime } from '@/utils/definition'
 import { formatText, formatEmptyNumbers, formatEmptyString } from '@/utils/format'
 import Image from 'next/image'
+import Link  from 'next/link';
 
 export default function AnimeItem(anime: Anime) {
 
@@ -19,7 +20,9 @@ export default function AnimeItem(anime: Anime) {
             </div>
 
             <div className='flex p-5'>
-                <Image src={anime.main_picture?.large} alt={anime.title} width={200} height={200}/>
+                <Link href={`/anime/${anime.id}`}>
+                     <Image src={anime.main_picture?.large} alt={anime.title} width={200} height={200}/>
+                </Link>
                 
                 <div className='p-5 w-50 flex flex-col text-black'>
                     <p> Episodes: {formatEmptyNumbers(anime.num_episodes)}</p>
