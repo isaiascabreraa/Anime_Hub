@@ -4,7 +4,7 @@ import Search from '@/components/ui/Search'
 import SeasonalAnimes from '@/components/SeasonalAnime';
 
 export default async function SeasonalPage({ searchParams }: {
-  searchParams: {season?: string}
+  searchParams: Promise<{season?: string}>
 }) {
 
   const season= (await searchParams).season
