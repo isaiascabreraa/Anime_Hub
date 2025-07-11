@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main>
       <section className='relative flex flex-col gap-5'>
-        <div className='relative w-full h-160 '>
+        <div className='relative w-full h-100 md:h-200 '>
           <Image
             src={banner_path}
             alt='AnimeHub Banner'
@@ -24,8 +24,8 @@ export default function Home() {
         </p>
         </section>
 
-        <section className='p-5'>
-          <h1 className='p-10 text-5xl text-center text-white'>Nuevos Animes</h1>
+        <section className='pt-5 pb-5'>
+          <h1 className='p-10 text-5xl text-center text-white'>Estrenos de Temporada</h1>
           <Suspense>
             <SeasonalAnimes season={season}/>
           </Suspense>
