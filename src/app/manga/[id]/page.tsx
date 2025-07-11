@@ -3,7 +3,9 @@ import { fetchManga } from '@/api/manga_data'
 import MangaItem from '@/components/MangaItem';
 import type { Manga } from '@/utils/definition';
 
-export default async function MangaItemPage({ params }: { params: { id: string}}){
+export default async function MangaItemPage({ params }: { 
+    params: Promise<{ id: string }>
+}){
 
     const { id } = await params
     console.log(`El ID es: ${id}`);

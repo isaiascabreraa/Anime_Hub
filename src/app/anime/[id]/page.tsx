@@ -4,7 +4,7 @@ import AnimeItem from '@/components/AnimeItem';
 import type {Anime } from '@/utils/definition';
 
 export default async function AnimeItemPage({ params }: { 
-    params: { id: string}
+    params: Promise<{ id: string }>
 }){
 
     const id = (await params).id
