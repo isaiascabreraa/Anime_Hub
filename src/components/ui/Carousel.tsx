@@ -15,21 +15,14 @@ export default function Carousel({ images }: { images: string[]}) {
 
   return (
     <div className="relative overflow-hidden">
+        
       {/* Carrusel */}
-      <div ref={emblaRef} className="overflow-hidden">
-        <div className="flex gap-10">
+      <div ref={emblaRef} className="p-10 overflow-hidden">
+        <div className="pl-10 pr-10 flex gap-10">
           {images.map((src, index) => (
             <div key={index} 
-            className="h-150 
-            flex-[0_0_100%] 
-            sm:flex-[0_0_50%] 
-            md:flex-[0_0_33.33%] 
-            lg:flex-[0_0_25%]">
-              <Image
-                src={src}
-                alt={`Slide ${index}`}
-                width={400}
-                height={400}
+            className=" flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%]">
+              <Image src={src} alt={`Slide ${index}`} width={400} height={400}
                 className="object-cover"
               />
             </div>

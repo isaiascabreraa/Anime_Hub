@@ -1,16 +1,16 @@
 
 import SeasonalAnimes from '@/components/SeasonalAnime';
-// import Carousel from '@/components/ui/Carousel';
+import Carousel from '@/components/ui/Carousel';
 import Image from 'next/image'
 import { Suspense } from 'react';
-// import { fetchImage } from '@/api/anime_data';
+import { fetchImage } from '@/api/anime_data';
 
 export default async function Home() {
 
   const season = 'spring'
   const banner_path = '/Multimedia/Branding/Banner-Collage4.png'
 
-  // const images = await fetchImage()
+  const images = await fetchImage()
 
   return (
     <main className='p-0 m-0 border-none'>
@@ -26,14 +26,8 @@ export default async function Home() {
         <p className="absolute p-5 z-20 text-white text-xl bottom-5 left-5 bg-black">
           ¡Nuevo animes de temporada! 
         </p>
-
-        {/* <div className='absolute inset-x-0 top-1/2 z-30 -translate-y-1/2'>
-          <Suspense>
-             <Carousel images={images}/>
-          </Suspense>
-          
-        </div> */}
         </section>
+
 
         <section>
           <h1 className='p-10 text-5xl text-center text-white'>Estrenos de Temporada</h1>
@@ -41,6 +35,15 @@ export default async function Home() {
             <SeasonalAnimes season={season}/>
           </Suspense>
         </section>
+
+         {/* className='absolute inset-x-0 top-1/2 z-30 -translate-y-1/2' */}
+        <div className='p-5 items-center bg-black'> 
+          <h2 className='p-10 text-5xl text-center text-white'>Animes recomendados</h2>
+          <Suspense>
+             <Carousel images={images}/>
+          </Suspense>
+          
+        </div>
 
     </main>
 
