@@ -1,30 +1,41 @@
 
 import SeasonalAnimes from '@/components/SeasonalAnime';
+// import Carousel from '@/components/ui/Carousel';
 import Image from 'next/image'
 import { Suspense } from 'react';
+// import { fetchImage } from '@/api/anime_data';
 
-export default function Home() {
+export default async function Home() {
 
   const season = 'spring'
   const banner_path = '/Multimedia/Branding/Banner-Collage4.png'
 
+  // const images = await fetchImage()
+
   return (
-    <main>
-      <section className='relative flex flex-col gap-5'>
+    <main className='p-0 m-0 border-none'>
+      <section className='flex flex-col'>
         <div className='relative w-full h-100 md:h-200 '>
           <Image
             src={banner_path}
             alt='AnimeHub Banner'
             fill
           />
-          <div className="absolute inset-0 z-10 backdrop-blur-[0.5px] brightness-60" />
+          {/* <div className="absolute inset-0 z-10 backdrop-blur-[0.5px] brightness-20" /> */}
         </div>
         <p className="absolute p-5 z-20 text-white text-xl bottom-5 left-5 bg-black">
           ¡Nuevo animes de temporada! 
         </p>
+
+        {/* <div className='absolute inset-x-0 top-1/2 z-30 -translate-y-1/2'>
+          <Suspense>
+             <Carousel images={images}/>
+          </Suspense>
+          
+        </div> */}
         </section>
 
-        <section className='pt-5 pb-5'>
+        <section>
           <h1 className='p-10 text-5xl text-center text-white'>Estrenos de Temporada</h1>
           <Suspense>
             <SeasonalAnimes season={season}/>

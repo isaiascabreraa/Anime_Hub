@@ -13,6 +13,10 @@ export type Studio = {
   name: string;
 }
 
+export type Image = {
+  image: string;
+}
+
 export type Item = {
   id: number;
   title: string;

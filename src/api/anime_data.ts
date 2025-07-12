@@ -42,6 +42,7 @@ export async function fetchTopAnimes() {
     );
 
     const data: ApiResponse<Anime> = await response.json();
+    console.log(data)
     return data;
 }
 
@@ -86,4 +87,27 @@ export async function fetchSeasonalAnimes(season: string) {
         );
         const data: ApiResponse<Anime> = await response.json();
         return data;
+}
+
+
+//Pre: -
+//Post: -
+export async function fetchImage() {
+    const CLIENT_ID = process.env.MAL_CLIENT_ID!;
+
+    const fields = `main_picture`
+
+    const response = await fetch(
+      `https://api.myanimelist.net/v2/anime/ranking?ranking_type=all&limit=10&fields=${fields}`,
+      {
+        headers: {
+          'X-MAL-CLIENT-ID': CLIENT_ID
+        }
+      }
+    );
+    
+    const res:  ApiResponse<Anime> = await response.json()
+    const images = res.data.map((item) => item.node.main_picture.large)
+
+    return images
 }

@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
     <html lang="en">
     <body className={`${InterFont.className} antiliased`}>
 
-      <header className='p-5 flex flex-col md:flex-row gap-5 border-t-10 border-b-10 border-black '>
+      <header className='p-5 flex flex-col md:flex-row gap-5'>
         <div>
           <Link href={'/'} className='flex flex-col items-center text-xl text-black'>
             <picture>
