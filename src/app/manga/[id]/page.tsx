@@ -1,16 +1,17 @@
 
-import { fetchManga } from '@/api/manga_data'
+import { fetchItem } from '@/api/myanimelist_data'
 import MangaItem from '@/components/MangaItem';
 import type { Manga } from '@/utils/definition';
 
 export default async function MangaItemPage({ params }: { 
     params: Promise<{ id: string }>
 }){
-
+    const type = 'manga'
     const { id } = await params
-    console.log(`El ID es: ${id}`);
+    const fields = `title,main_picture,related_anime,start_date,end_date,genres,studio,
+    mean,status,rank,num_chapters,num_volumes,media_type`
 
-    const manga: Manga = await fetchManga(id);
+    const manga: Manga = await fetchItem(id, type, fields);
 
     return(
         <>

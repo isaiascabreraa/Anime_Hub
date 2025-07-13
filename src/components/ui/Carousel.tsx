@@ -11,8 +11,6 @@ export default function Carousel({ images }: { images: string[]}) {
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi])
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi])
 
-  console.log(`Llega: ${images}`)
-
   return (
     <div className="relative overflow-hidden">
         

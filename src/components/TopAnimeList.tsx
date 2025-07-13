@@ -1,11 +1,18 @@
 
 import { ApiResponse, Anime } from '@/utils/definition';
 import ItemShowcase from './ItemShowcase';
-import { fetchTopAnimes } from '@/api/anime_data';
+import { fetchTopRanking } from '@/api/myanimelist_data';
 
 export default async function TopAnimeList() {
-  const res = await fetchTopAnimes();
-  const topAnimes = (res as ApiResponse<Anime>).data.map((entry) => entry.node);
+
+  const fields = `title,main_picture,related_anime,start_date,end_date,
+  source,genres,studio, mean,status,rank,num_episodes,studios,media_type,
+  average_episode_duration`
+
+  const type = 'anime'
+
+  const res: ApiResponse<Anime> = await fetchTopRanking(type, fields);
+  const topAnimes = res.data.map((entry) => entry.node);
 
   return (
     <section className="flex flex-col items-center gap-5">

@@ -1,11 +1,17 @@
 
 import { ApiResponse, Manga } from '@/utils/definition';
 import ItemShowcase from './ItemShowcase';
-import { fetchTopMangas } from '@/api/manga_data';
+import { fetchTopRanking } from '@/api/myanimelist_data';
 
 export default async function TopMangaList() {
-  const res = await fetchTopMangas();
-  const topMangas = (res as ApiResponse<Manga>).data.map((entry) => entry.node);
+
+  const fields = `title,main_picture,related_anime,start_date,end_date,genres,studio,
+    mean,status,rank,num_chapters,num_volumes,media_type`
+
+  const type = 'manga'
+
+  const res: ApiResponse<Manga> = await fetchTopRanking(type, fields);
+  const topMangas = res.data.map((entry) => entry.node);
 
   return (
     <section className="flex flex-col items-center gap-5">
