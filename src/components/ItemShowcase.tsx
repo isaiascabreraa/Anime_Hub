@@ -1,11 +1,11 @@
 
 import { formatEmptyNumbers } from '@/utils/format';
-import type { Anime, Manga, Showcase } from '@/utils/definition';
+ import type { Anime, Manga } from '@/utils/definition';
 
 import AnimeItem from '@/components/AnimeItem';
 import MangaItem from '@/components/MangaItem';
 
-export default function ItemShowcase({ items, type }: Showcase) {
+export default function ItemShowcase({ items, type, rank }: {items: Anime[] | Manga[], type: string, rank: string}) {
   return (
     <>
       {items.map((item) => (
@@ -20,7 +20,7 @@ export default function ItemShowcase({ items, type }: Showcase) {
             )}
           </div>
 
-          <div className='flex justify-center text-white'>
+          <div className={`p-2 flex justify-center text-${rank}`}>
                   <p className='text-lg'> Ranking: {formatEmptyNumbers(item.rank)} ({item.mean} score)</p>
           </div>
 

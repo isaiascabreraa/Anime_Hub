@@ -16,7 +16,7 @@ export default async function TopAnimeList() {
 
   return (
     <section className="p-5 flex flex-col items-center gap-5 bg-white">
-      <ItemShowcase items={topAnimes} type="anime" />
+      <ItemShowcase items={topAnimes} type="anime" rank="black" />
     </section>
   );
 }

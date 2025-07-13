@@ -22,7 +22,8 @@ export default function AnimeItem(anime: Anime) {
 
             <div className='flex p-5'>
                 <Link href={`/anime/${anime.id}`}>
-                     <Image src={anime.main_picture?.large} alt={anime.title} width={280} height={280}/>
+                     <Image src={anime.main_picture?.large} alt={anime.title} width={280} height={280}
+                     className='shadow-[0_0_10px_#000000]'/>
                 </Link>
                 
                 <div className='p-5 flex flex-col flex-wrap text-black'>

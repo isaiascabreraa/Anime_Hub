@@ -19,7 +19,8 @@ export default function AnimeItem(manga: Manga) {
             </div>
             <div className='flex p-5'>
                 <Link href={`/manga/${manga.id}`}>
-                    <Image src={manga.main_picture?.large} alt={manga.title} width={280} height={280}/>
+                    <Image src={manga.main_picture?.large} alt={manga.title} width={280} height={280}
+                    className='shadow-[0_0_10px_#000000]'/>
                 </Link>
                 
                 

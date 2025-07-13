@@ -3,6 +3,7 @@
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image'
 import { useCallback } from 'react'
+import Link from 'next/link'
 
 
 export default function Carousel({ images }: { images: string[]}) {
@@ -20,9 +21,12 @@ export default function Carousel({ images }: { images: string[]}) {
           {images.map((src, index) => (
             <div key={index} 
             className=" flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%]">
-              <Image src={src} alt={`Slide ${index}`} width={400} height={400}
-                className="object-cover"
-              />
+              <Link href='/anime'>
+                <Image src={src} alt={`Slide ${index}`} width={400} height={400}
+                className="object-cover shadow-[0_0_10px_#000000]"/>
+              </Link>
+              
+              
             </div>
           ))}
         </div>

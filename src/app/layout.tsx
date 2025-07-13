@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
           </Link>
         </div>
 
-        <nav className={`${Familjen_GroteskFont.className} antiliased w-full flex justify-center items-center gap-10 text-center text-black`}>
+        <nav className={`${Familjen_GroteskFont.className} font-medium antiliased w-full flex justify-center items-center gap-10 text-center text-black`}>
           
           <Link href='/anime/seasonal'>
             <p className='p-3 rounded text-2xl text-white bg-orange-500'>Temporada Anime</p>

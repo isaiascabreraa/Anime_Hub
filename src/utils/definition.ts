@@ -25,7 +25,7 @@ export type Item = {
     large: string;
   };
   start_date: string;
-  end_date: string;
+  end_date: string; 
   genres: Genre[];
   media_type: string;
   mean: number;
@@ -46,6 +46,7 @@ export type Manga = Item & {
 
 
 export type ItemType = 'anime' | 'manga';
+
 export type AnimeItems = {
   items: Anime[];
   type: 'anime';

@@ -12,12 +12,19 @@ export default async function SeasonalAnimes({ season }: Season ) {
 
     const current_season = 'spring'
 
-    const res: ApiResponse<Anime> = await fetchSeasonalAnimes(season || current_season, fields);
-    const seasonalAnimes = res.data.map((entry) => entry.node);
+    try {
+      const res: ApiResponse<Anime> = await fetchSeasonalAnimes(season || current_season, fields);
+      const seasonalAnimes = res.data.map((entry) => entry.node);
 
-    return (
-        <div className=' pb-5 pt-5 flex flex-col items-center gap-10'>
-          <ItemShowcase items={seasonalAnimes} type="anime"/>
-        </div>
-      );
+      return (
+          <div className=' pb-5 pt-5 flex flex-col items-center gap-10'>
+            <ItemShowcase items={seasonalAnimes} type="anime" rank="black"/>
+          </div>
+        );
+
+    } catch(error) {
+      console.error('Failed to fetch seasonal animes:', error);
+      return null
+    }
+
 }

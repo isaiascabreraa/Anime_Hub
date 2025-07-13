@@ -15,7 +15,7 @@ export default async function TopMangaList() {
 
   return (
     <section className="p-5 flex flex-col items-center gap-5 bg-white">
-      <ItemShowcase items={topMangas} type="manga" />
+      <ItemShowcase items={topMangas} type="manga" rank='black'/>
     </section>
   );
 }

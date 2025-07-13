@@ -4,7 +4,11 @@
 //Pre: -
 //Post: -
 export async function fetchItem(id: string, type: string, fields: string) {
-    const CLIENT_ID = process.env.MAL_CLIENT_ID!;
+    
+    const CLIENT_ID = process.env.MAL_CLIENT_ID;
+    if (!CLIENT_ID) {
+      throw new Error('MAL_CLIENT_ID is not defined in environment variables');
+    }
     
     const response = await fetch(
       `https://api.myanimelist.net/v2/${type}/${id}?fields=${fields}`,
@@ -14,16 +18,30 @@ export async function fetchItem(id: string, type: string, fields: string) {
         }
       }
     );
-    const data = await response.json();
-    return data;
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ranking data: ${response.status} ${response.statusText}`);
+    }
+
+    try {
+      const res = await response.json();
+      return res;
+
+    } catch (error) {
+      throw new Error(`Failed to parse JSON response: ${error}`);
+    }
 }
 
 
 //Pre: -
 //Post: -
 export async function fetchTopRanking(type: string, fields: string) {
-    const CLIENT_ID = process.env.MAL_CLIENT_ID!;
     
+    const CLIENT_ID = process.env.MAL_CLIENT_ID;
+    if (!CLIENT_ID) {
+      throw new Error('MAL_CLIENT_ID is not defined in environment variables');
+    }
+
     const response = await fetch(
       `https://api.myanimelist.net/v2/${type}/ranking?ranking_type=all&limit=20&fields=${fields}`,
       {
@@ -32,34 +50,60 @@ export async function fetchTopRanking(type: string, fields: string) {
         }
       }
     );
-    const data = await response.json();
-    return data;
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ranking data: ${response.status} ${response.statusText}`);
+    }
+
+    try {
+      const res = await response.json();
+      return res;
+
+    } catch (error) {
+      throw new Error(`Failed to parse JSON response: ${error}`);
+    }
 }
 
-//Pre: Only for animes. Mangas doenst have a broadcast season.
+//Pre: Only for animes. Mangas doesnt have a broadcast season.
 //Post: -
 export async function fetchSeasonalAnimes(season: string, fields: string) {
-    const CLIENT_ID = process.env.MAL_CLIENT_ID!;
     
-        const response = await fetch(
-          `https://api.myanimelist.net/v2/anime/season/2025/${season}?limit=20&fields=${fields}`,
-          {
-            headers: {
-              'X-MAL-CLIENT-ID': CLIENT_ID
-            }
-          }
-        );
+    const CLIENT_ID = process.env.MAL_CLIENT_ID;
+    if (!CLIENT_ID) {
+      throw new Error('MAL_CLIENT_ID is not defined in environment variables');
+    }
+    
+    const response = await fetch(
+      `https://api.myanimelist.net/v2/anime/season/2025/${season}?limit=20&fields=${fields}`,
+      {
+        headers: {
+          'X-MAL-CLIENT-ID': CLIENT_ID
+        }
+      }
+    );
 
-        const data = await response.json();
-        return data;
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ranking data: ${response.status} ${response.statusText}`);
+    }
+
+    try {
+      const res = await response.json();
+      return res;
+
+    } catch (error) {
+      throw new Error(`Failed to parse JSON response: ${error}`);
+    }
 }
 
 
 //Pre: -
 //Post: -
 export async function fetchImage(type: string) {
-    const CLIENT_ID = process.env.MAL_CLIENT_ID!;
-
+    
+    const CLIENT_ID = process.env.MAL_CLIENT_ID;
+    if (!CLIENT_ID) {
+      throw new Error('MAL_CLIENT_ID is not defined in environment variables');
+    }
     const fields = `main_picture`
 
     const response = await fetch(
@@ -70,7 +114,16 @@ export async function fetchImage(type: string) {
         }
       }
     );
-    
-    const res = await response.json()
-    return res
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ranking data: ${response.status} ${response.statusText}`);
+    }
+
+    try {
+      const res = await response.json();
+      return res;
+
+    } catch (error) {
+      throw new Error(`Failed to parse JSON response: ${error}`);
+    }
 }

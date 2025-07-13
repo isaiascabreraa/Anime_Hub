@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Suspense } from 'react';
 import { fetchImage } from '@/api/myanimelist_data';
 import { ApiResponse, Anime } from '@/utils/definition';
+import { RobotoFont } from '@/styles/fonts';
 
 export default async function Home() {
 
@@ -18,7 +19,7 @@ export default async function Home() {
   return (
     <main>
       <section>
-        <div className='relative w-full h-100 md:h-200'>
+        <div className='relative w-full h-150 md:h-175 lg:h-200'>
           <Image src={banner_path} alt='AnimeHub Banner' fill className='brightness-75'/>
 
           <p className="absolute p-5 z-20 text-white text-xl bottom-5 left-5 bg-orange-500">
@@ -29,19 +30,22 @@ export default async function Home() {
       </section>
 
       <section className='bg-black'>
-        <h1 className='p-10 text-5xl text-center text-white'>Estrenos de Temporada</h1>
+        <h1 className={`${RobotoFont.className} font-semibold p-10 text-5xl text-center text-white`}> Estrenos de Temporada</h1>
         <Suspense>
           <SeasonalAnimes season={season}/>
         </Suspense>
       </section>
 
          {/* className='absolute inset-x-0 top-1/2 z-30 -translate-y-1/2' */}
-        <div className='p-5 items-center bg-black'> 
-          <h2 className='p-10 text-5xl text-center text-white'>Animes recomendados</h2>
-          <Suspense>
+        <div className='flex flex-col gap-5 p-10 items-center'> 
+          <h2 className={`${RobotoFont.className} font-semibold text-5xl text-center text-white`}>Animes recomendados</h2>
+          <div className='rounded bg-white'>
+            <Suspense>
              <Carousel images={images}/>
-          </Suspense>
-          
+            </Suspense>
+          </div>
+
+        
         </div>
 
     </main>
