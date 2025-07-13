@@ -14,7 +14,7 @@ export default async function TopMangaList() {
   const topMangas = res.data.map((entry) => entry.node);
 
   return (
-    <section className="flex flex-col items-center gap-5">
+    <section className="p-5 flex flex-col items-center gap-5 bg-white">
       <ItemShowcase items={topMangas} type="manga" />
     </section>
   );

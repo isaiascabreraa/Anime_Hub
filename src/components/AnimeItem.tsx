@@ -16,7 +16,8 @@ export default function AnimeItem(anime: Anime) {
                     <p> End Date: {formatEmptyString(anime.end_date)}</p>
                 </div>
                 
-                <p className='pl-2 pr-2 flex flex-wrap justify-center w-full border-b-5 border-black '>Genres: {anime.genres.map((entry) => entry.name).join(', ')}</p>
+                <p className='pl-2 pr-2 flex flex-wrap justify-center w-full border-b-5 border-black'>
+                    Genres: {anime.genres.map((entry) => entry.name).join(', ')} </p>
             </div>
 
             <div className='flex p-5'>

@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
     <html lang="en">
     <body className={`${InterFont.className} antiliased`}>
 
-      <header className='p-5 flex flex-col md:flex-row gap-5'>
+      <header className='p-5 flex flex-col md:flex-row gap-5 bg-black'>
         <div>
           <Link href={'/'} className='flex flex-col items-center text-xl text-black'>
             <picture>
@@ -38,15 +38,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
         <nav className={`${Familjen_GroteskFont.className} antiliased w-full flex justify-center items-center gap-10 text-center text-black`}>
           
           <Link href='/anime/seasonal'>
-            <p className='p-2 rounded-xl text-2xl bg-orange-300'>Temporada Anime</p>
+            <p className='p-3 rounded text-2xl text-white bg-orange-500'>Temporada Anime</p>
           </Link>
 
           <Link href={'/anime'}>
-            <p className='p-2 rounded-xl text-2xl bg-orange-300'>Top Animes</p>
+            <p className='p-3 rounded text-2xl text-white bg-orange-500'>Top Animes</p>
           </Link>
 
           <Link href={'/manga'}>
-            <p className='p-2 rounded-xl text-2xl bg-orange-300'>Top Mangas</p>
+            <p className='p-3 rounded text-2xl text-white bg-orange-500'>Top Mangas</p>
           </Link>
 
         </nav>

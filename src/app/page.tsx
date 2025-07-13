@@ -16,19 +16,19 @@ export default async function Home() {
   const images = res.data.map((item) => item.node.main_picture.large)
 
   return (
-    <main className='p-0 m-0 border-none'>
+    <main>
       <section>
-        <div className='relative w-full h-100 md:h-200 '>
-          <Image src={banner_path} alt='AnimeHub Banner' fill />
+        <div className='relative w-full h-100 md:h-200'>
+          <Image src={banner_path} alt='AnimeHub Banner' fill className='brightness-75'/>
 
-          <p className="absolute p-5 z-20 text-white text-xl bottom-5 left-5 bg-red-500">
+          <p className="absolute p-5 z-20 text-white text-xl bottom-5 left-5 bg-orange-500">
           ¡Nuevo animes de temporada! </p>
 
         </div>
         
       </section>
 
-      <section>
+      <section className='bg-black'>
         <h1 className='p-10 text-5xl text-center text-white'>Estrenos de Temporada</h1>
         <Suspense>
           <SeasonalAnimes season={season}/>

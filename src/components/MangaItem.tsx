@@ -14,11 +14,12 @@ export default function AnimeItem(manga: Manga) {
                     <span>Start Date: {formatEmptyString(manga.start_date)}</span>
                     <span>End Date: {formatEmptyString(manga.end_date)}</span>
                 </div>
-                <p className='flex flex-wrap max-w-full sm:max-w-sm md:max-w-md lg:max-w-lg border-b-5 border-black'>Genres: {manga.genres.map((entry) => entry.name).join(', ')}</p>
+                <p className='pl-2 pr-2 flex flex-wrap justify-center w-full border-b-5 border-black'>
+                    Genres: {manga.genres.map((entry) => entry.name).join(', ')} </p>
             </div>
             <div className='flex p-5'>
                 <Link href={`/manga/${manga.id}`}>
-                    <Image src={manga.main_picture?.large} alt={manga.title} width={200} height={200}/>
+                    <Image src={manga.main_picture?.large} alt={manga.title} width={280} height={280}/>
                 </Link>
                 
                 

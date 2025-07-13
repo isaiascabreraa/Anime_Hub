@@ -16,8 +16,8 @@ export default async function SeasonalAnimes({ season }: Season ) {
     const seasonalAnimes = res.data.map((entry) => entry.node);
 
     return (
-        <section className='flex flex-col items-center gap-5'>
+        <div className=' pb-5 pt-5 flex flex-col items-center gap-10'>
           <ItemShowcase items={seasonalAnimes} type="anime"/>
-        </section>
+        </div>
       );
 }

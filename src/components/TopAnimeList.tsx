@@ -15,7 +15,7 @@ export default async function TopAnimeList() {
   const topAnimes = res.data.map((entry) => entry.node);
 
   return (
-    <section className="flex flex-col items-center gap-5">
+    <section className="p-5 flex flex-col items-center gap-5 bg-white">
       <ItemShowcase items={topAnimes} type="anime" />
     </section>
   );
