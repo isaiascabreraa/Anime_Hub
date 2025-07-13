@@ -1,2 +1,2 @@
 # Anime_Hub
-A complete website about anime
+A complete anime website built with Next.js and React, incorporating technologies such as Tailwind CSS and TypeScript. It integrates with the official MyAnimeList API to fetch real-time data about top-ranked anime, seasonal releases, and detailed information on specific titles.
