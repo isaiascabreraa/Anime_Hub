@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { InterFont, Russo_OneFont, Familjen_GroteskFont } from '@/styles/fonts';
 
 import Link from 'next/link';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }){
   
-  const logo_path = "/Multimedia/Branding/AnimeHub_logo.png";
+  // const logo_path = "/Multimedia/Branding/AnimeHub_logo.png";
 
   return (
     <html lang="en">
