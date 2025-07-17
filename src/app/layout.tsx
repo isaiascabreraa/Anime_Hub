@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: 'Plataforma para gestionar tus animes y mangas',
   keywords: "anime, manga, organizar",
   icons: {
-    icon: '/Multimedia/Branding/AnimeHub_logo.png',
+    icon: '/Multimedia/Others/Icon1.png',
   },
 };
 
