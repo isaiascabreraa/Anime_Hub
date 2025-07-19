@@ -19,10 +19,10 @@ export default async function Home() {
   return (
     <main>
       <section>
-        <div className='relative w-full h-150 md:h-175 lg:h-200'>
+        <div className='relative w-full aspect-[16/6]'>
           <Image src={banner_path} alt='AnimeHub Banner' fill className='brightness-75'/>
 
-          <p className="absolute p-5 z-20 text-white text-xl bottom-5 left-5 bg-orange-500">
+          <p className="absolute p-2 z-20 text-lg sm:text-xl md:text-2xl bottom-5 left-5 bg-orange-500">
           ¡Nuevo animes de temporada! </p>
 
         </div>
@@ -30,7 +30,7 @@ export default async function Home() {
       </section>
 
       <section className='bg-black'>
-        <h1 className={`${RobotoFont.className} font-semibold p-10 text-5xl text-center text-white`}> Estrenos de Temporada</h1>
+        <h1 className={`${RobotoFont.className} font-semibold pt-10 pb-10 text-2xl sm:text-3xl md:text-4xl text-center text-white`}> Estrenos de Temporada</h1>
         <Suspense>
           <SeasonalAnimes season={season}/>
         </Suspense>

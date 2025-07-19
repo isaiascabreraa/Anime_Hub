@@ -17,37 +17,39 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }){
-  
-  // const logo_path = "/Multimedia/Branding/AnimeHub_logo.png";
 
   return (
     <html lang="en">
     <body className={`${InterFont.className} antiliased`}>
 
-      <header className='p-5 flex flex-col md:flex-row h-30 gap-5 bg-black'>
+      <header className='p-10 flex flex-col items-center md:flex-row md:justify-between gap-5 bg-black'>
+        
         <div className='flex items-center'>
           <Link href={'/'} className='flex flex-col items-center text-xl text-black'>
-            {/* <picture>
-              <Image src={logo_path} alt='Logo AnimeHub' width={120} height={120}/>
-            </picture> */}
-
             <p className={`text-3xl text-white ${Russo_OneFont.className} antiliased`}>AnimeHub</p>
           </Link>
         </div>
 
-        <nav className={`${Familjen_GroteskFont.className} font-medium antiliased w-full flex justify-center items-center gap-10 text-center text-black`}>
+        <nav className={`${Familjen_GroteskFont.className} font-medium antiliased flex justify-center items-center gap-10 text-center text-black`}>
           
-          <Link href='/anime/seasonal'>
-            <p className='p-3 rounded text-2xl text-white bg-orange-500'>Temporada Anime</p>
+          <Link href="/anime/seasonal">
+            <p className="p-2 rounded text-white text-lg sm:text-xl md:text-2xl bg-orange-500">
+              Temporada Anime
+            </p>
           </Link>
 
-          <Link href={'/anime'}>
-            <p className='p-3 rounded text-2xl text-white bg-orange-500'>Top Animes</p>
+          <Link href="/anime">
+            <p className="p-2 rounded text-white text-lg sm:text-xl md:text-2xl bg-orange-500">
+              Top Animes
+            </p>
           </Link>
 
-          <Link href={'/manga'}>
-            <p className='p-3 rounded text-2xl text-white bg-orange-500'>Top Mangas</p>
+          <Link href="/manga">
+            <p className="p-2 rounded text-white text-lg sm:text-xl md:text-2xl bg-orange-500">
+              Top Mangas
+            </p>
           </Link>
+
 
         </nav>
       </header>
