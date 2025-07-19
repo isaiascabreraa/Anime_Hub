@@ -16,9 +16,6 @@ export default async function AnimeItemPage({ params }: {
 
     return(
         <>
-        <div>
-            <p className="text-white"> Estas viendo el anime: {id}</p>
-        </div>
         <div className='className=" w-full m-2 flex flex-col rounded-md items-center border-3 border-black bg-white'>
 
             <AnimeItem {...anime}/>
