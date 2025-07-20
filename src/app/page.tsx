@@ -40,7 +40,7 @@ export default async function Home() {
 
         <div className='flex flex-col gap-5 p-10 items-center'> 
           <h2 className={`${RobotoFont.className} font-semibold text-5xl text-center text-white`}>Animes recomendados</h2>
-          <div className='rounded bg-white'>
+          <div className='w-full h-full rounded bg-white'>
             { <Suspense>
              <Carousel images={imageUrlsExtraLarge}/>
             </Suspense> }
