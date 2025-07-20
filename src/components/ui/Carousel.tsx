@@ -13,24 +13,27 @@ export default function Carousel({ images }: { images: string[]}) {
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi])
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="p-5 relative overflow-hidden">
         
       {/* Carrusel */}
-      <div ref={emblaRef} className="p-10 overflow-hidden">
-        <div className="pl-10 pr-10 flex gap-10">
-          {images.map((src, index) => (
-            <div key={index} 
-            className=" flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%]">
-              <Link href='/anime'>
-                <Image src={src} alt={`Slide ${index}`} width={400} height={400}
-                className="object-cover shadow-[0_0_10px_#000000]"/>
-              </Link>
-              
-              
-            </div>
-          ))}
+      <div className="flex flex-wrap gap-4">
+  {images.map((src, index) => (
+    <div key={index} className="flex-1 min-w-[150px] max-w-[250px]">
+      <Link href="/anime">
+        <div className="w-full h-44 relative overflow-hidden shadow-[0_0_10px_#000000]">
+          <Image
+            src={src}
+            alt={`Slide ${index}`}
+            fill
+            className="object-cover"
+          />
         </div>
-      </div>
+      </Link>
+    </div>
+  ))}
+</div>
+
+
 
       {/* Botones */}
       <button onClick={scrollPrev} className="absolute left-2 top-1/2 z-10 bg-black/50 text-white p-2 rounded-full">‹</button>

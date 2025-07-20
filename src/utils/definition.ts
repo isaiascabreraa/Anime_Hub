@@ -3,40 +3,52 @@ export type Season = {
   season: string;
 }
 
-export type Genre = {
-  id: number;
-  name: string;
-}
-
-export type Studio = {
-  id: number;
-  name: string;
-}
-
 export type Image = {
   image: string;
 }
 
+export type Genre = string;
+
+export type Studio = {
+  name: string;
+};
+
+export type Title = {
+  romaji: string;
+  english?: string;
+  native?: string;
+};
+
+export type DateParts = {
+  year?: number;
+  month?: number;
+  day?: number;
+};
+
 export type Item = {
   id: number;
-  title: string;
-  main_picture: {
+  title: Title; // objeto con varios formatos
+  coverImage: {
     medium: string;
     large: string;
+    extraLarge: string;
+    color: string
   };
-  start_date: string;
-  end_date: string; 
+  startDate: DateParts;   // en AniList viene como objeto
+  endDate: DateParts;
   genres: Genre[];
-  media_type: string;
-  mean: number;
-  rank: number;
+  mediaType: string;
+  meanScore: number;
+  rank?: number; // si usás rankings, sino puede no venir
 };
+
 export type Anime = Item & {
   source: string;
   studios: Studio[];
-  num_episodes: number;
-  average_episode_duration: number;
+  episodes: number;
+  averageEpisodeDuration: number;
 };
+
 
 export type Manga = Item & {
   num_chapters: number;
@@ -63,4 +75,11 @@ export type ApiResponse<T> = {
   data: {
     node: T;
   }[];
+};
+export type AniListResponse<T> = {
+  data: {
+    Page: {
+      media: T[];
+    };
+  };
 };

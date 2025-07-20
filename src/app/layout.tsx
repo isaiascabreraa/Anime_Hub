@@ -50,6 +50,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
             </p>
           </Link>
 
+          <Link href={'/Account'}>
+            <p className='p-2 rounded text-white text-lg sm:text-xl md:text-2xl bg-orange-500'>Account</p>
+          </Link>
 
         </nav>
       </header>
@@ -62,9 +65,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
             <p className='p-3 rounded text-2xl text-white bg-orange-500'>Account</p>
           </Link>
         </nav>
-    
-      
-
       </footer>
 
     </body>

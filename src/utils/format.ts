@@ -1,10 +1,11 @@
 
 export function formatText(text: string) {
-  return text
-    .replace(/_/g, ' ') // Reemplaza todos los guiones bajos por espacios
-    .split(' ')         // Separa por espacios
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitaliza cada palabra
-    .join(' ');         // Une todo en un string
+
+  return text ? text
+  .replace(/_/g, ' ')
+  .split(' ').map(w => w[0]
+    .toUpperCase() + w.slice(1))
+    .join(' ') : undefined;
 }
 
 export function formatEmptyNumbers(input: number){
