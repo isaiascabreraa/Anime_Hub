@@ -1,7 +1,5 @@
 
-export type Season = {
-  season: string;
-}
+
 
 export type Image = {
   image: string;
@@ -82,4 +80,18 @@ export type AniListResponse<T> = {
       media: T[];
     };
   };
+};
+
+
+
+
+export type Season = 'WINTER' | 'SPRING' | 'SUMMER' | 'FALL';
+
+export type AnimeFilters = {
+  page: number;
+  perPage: number;
+  id?: number;
+  search?: string;
+  season?: Season;
+  seasonYear?: number;
 };

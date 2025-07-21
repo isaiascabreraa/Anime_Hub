@@ -1,5 +1,5 @@
 
-import { formatEmptyNumbers } from '@/utils/format';
+// import { formatEmptyNumbers } from '@/utils/format';
  import type { Anime, Manga } from '@/utils/definition';
 
 import AnimeItem from '@/components/AnimeItem';
@@ -21,7 +21,7 @@ export default function ItemShowcase({ items, type, rank }: {items: Anime[] | Ma
           </div>
 
           <div className={`p-2 flex justify-center text-${rank}`}>
-                  <p className='text-lg'> Ranking: {formatEmptyNumbers(item.rank)} ({item.mean} score)</p>
+                  {/* <p className='text-lg'> Ranking: {formatEmptyNumbers(item.rank)} ({item.mean} score)</p> */}
           </div>
 
         </div>
