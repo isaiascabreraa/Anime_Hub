@@ -29,11 +29,11 @@ export default async function AnimeItemPage({ params }: {
             const anime: Anime = res.data.Page.media[0];
 
             return(
-                <>
-                <div className='className=" w-full m-2 flex flex-col rounded-md items-center border-3 border-black bg-white'>
+                
+                <div className='w-full flex justify-center bg-slate-700'>
                     <AnimeDetails {...anime}/>
                 </div>
-                </>
+                
             );
 
     } catch(error) {

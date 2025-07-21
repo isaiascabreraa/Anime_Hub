@@ -59,7 +59,7 @@ export default async function Home() {
           {seasonData.map(({season, animes}) => {
             const images: ItemImage[] = animes.map((anime) => ({id: anime.id, image: anime.coverImage?.extraLarge})).filter(Boolean);
             return (
-              <div key={season} className='flex flex-col gap-5 p-10 items-center bg-slate-950'> 
+              <div key={season} className='flex flex-col gap-5 p-10 items-center bg-slate-800'> 
                 <h2 className={`${RobotoFont.className} font-semibold text-5xl text-center text-white`}>
                   {season}
                 </h2>

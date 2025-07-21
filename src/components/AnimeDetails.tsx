@@ -1,7 +1,6 @@
 
 
 import { Anime } from '@/utils/definition'
-// import { formatText, formatEmptyNumbers, formatEmptyString } from '@/utils/format'
 import Image from 'next/image'
 import { TrailerPlayer } from '@/components/ui/TrailerPlayer';
 
@@ -11,7 +10,7 @@ export default function AnimeDetails(anime: Anime) {
 
     return(
         <>
-        <div className='p-5 flex flex-col w-full gap-5 bg-slate-800'>
+        <div className='p-5 flex flex-col w-full max-w-250 gap-5 shadow-[0_0_10px_#000000] bg-slate-800'>
 
           <div>
             <p> Title: </p>
@@ -30,11 +29,9 @@ export default function AnimeDetails(anime: Anime) {
           </div>
 
 
-          <div>
-            <p> Trailer: </p>
+          <div className='w-3/4 mx-auto'>
             <TrailerPlayer 
               youtubeId={anime.trailer.id}
-              thumbnail={anime.trailer.thumbnail}
               className="rounded-lg overflow-hidden"
             />
 

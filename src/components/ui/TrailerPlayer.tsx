@@ -1,43 +1,40 @@
 
 'use client'
 import { useState } from 'react'
-import Image from 'next/image'
 
 type TrailerPlayerProps = {
   youtubeId: string
-  thumbnail?: string
   className?: string
 }
 
-export function TrailerPlayer({ youtubeId, thumbnail, className = '' }: TrailerPlayerProps) {
+import Image from 'next/image'
+
+export function TrailerPlayer({ youtubeId, className = '' }: TrailerPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false)
+
+  const thumbnail = `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`
 
   return (
     <div className={`relative aspect-video ${className}`}>
       {!isPlaying ? (
-        <div 
+        <div
           className="w-full h-full cursor-pointer relative"
           onClick={() => setIsPlaying(true)}
         >
-          {thumbnail && (
-            <>
-              {/* Miniaturas optimizadas con Next.js Image */}
-              <Image
-                src={thumbnail}
-                alt="Video thumbnail"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                <PlayButton />
-              </div>
-            </>
-          )}
+          <Image
+            src={thumbnail}
+            alt="Video thumbnail"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <PlayButton />
+          </div>
         </div>
       ) : (
         <iframe
-          src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1`}
+          src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&rel=0&controls=1`}
           className="w-full h-full"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -46,6 +43,7 @@ export function TrailerPlayer({ youtubeId, thumbnail, className = '' }: TrailerP
     </div>
   )
 }
+
 
 // Componente auxiliar para el botón de play
 function PlayButton() {
