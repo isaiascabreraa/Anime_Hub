@@ -3,7 +3,8 @@
 
 ///////////////////////////////
 
-export type Image = {
+export type ItemImage = {
+  id: number;
   image: string;
 }
 
@@ -63,6 +64,11 @@ export type Anime = Item & {
   episodes: number;
   averageEpisodeDuration: number;
   rankings: Ranking[];
+  trailer?: {
+    id: string;
+    site: string; // Ej: "youtube"
+    thumbnail: string;
+  };
 };
 
 export type Ranking = {
@@ -81,19 +87,7 @@ export type Manga = Item & {
   num_volumes: number;
 };
 
-///////////////////////////////
-
-export type AnimeItems = {
-  items: Anime[];
-  type: 'anime';
-};
-export type MangaItems = {
-  items: Manga[];
-  type: 'manga';
-};
-export type ItemType = 'anime' | 'manga';
-export type Showcase = AnimeItems | MangaItems;
-
+// Interface's types
 export type AniListResponse<T> = {
   data: {
     Page: {
@@ -101,3 +95,14 @@ export type AniListResponse<T> = {
     };
   };
 };
+
+export type AnimeItems = {
+  items: Anime[];
+  type: 'ANIME';
+};
+export type MangaItems = {
+  items: Manga[];
+  type: 'MANGA';
+};
+
+export type Items = AnimeItems | MangaItems;

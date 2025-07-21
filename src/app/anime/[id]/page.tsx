@@ -1,6 +1,6 @@
 
 import { fetchAnimes } from '@/api/anilist_data'
-import AnimeItem from '@/components/AnimeItem';
+import AnimeDetails from '@/components/AnimeDetails';
 import type { AniListResponse, Anime } from '@/utils/definition';
 
 export default async function AnimeItemPage({ params }: { 
@@ -16,19 +16,22 @@ export default async function AnimeItemPage({ params }: {
           source
           genres
           meanScore
-          episodes`
+          episodes
+          trailer {
+          id
+          site
+          thumbnail
+        }`
 
 
     try {
             const res: AniListResponse<Anime> = await fetchAnimes({id: Number(id), fields: fields});
             const anime: Anime = res.data.Page.media[0];
 
-            console.log(anime)
-
             return(
                 <>
                 <div className='className=" w-full m-2 flex flex-col rounded-md items-center border-3 border-black bg-white'>
-                    <AnimeItem {...anime}/>
+                    <AnimeDetails {...anime}/>
                 </div>
                 </>
             );

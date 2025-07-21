@@ -1,13 +1,16 @@
 'use client'
 
+import Link from 'next/link'
+import Image from 'next/image'
+
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
-
-import Image from 'next/image'
-import Link from 'next/link'
 import { useCallback } from 'react'
 
-export default function Carousel({ images }: { images: string[] }) {
+import { ItemImage } from '@/utils/definition'
+
+
+export default function Carousel({ images } : { images: ItemImage[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true,
     align: 'start',
@@ -16,6 +19,8 @@ export default function Carousel({ images }: { images: string[] }) {
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
+
+  console.log(`ESTE ES EL ID: ${images[0].id}`)
 
   return (
     <div className="relative w-full h-80">
@@ -26,13 +31,13 @@ export default function Carousel({ images }: { images: string[] }) {
         {/* Contenedor del carrusel */}
         <div className="flex h-full">
 
-          {images.map((src, index) => (
+          {images.map((image) => (
             /* Elemento */
-            <div key={index} className="pr-2 pl-2 flex-[0_0_35%] sm:flex-[0_0_30%] md:flex-[0_0_25%] lg:flex-[0_0_20%] xl:flex-[0_0_15%] 2xl:flex-[0_0_10%] h-full">
-              <Link href="/anime">
+            <div key={image.id} className="pr-2 pl-2 flex-[0_0_35%] sm:flex-[0_0_30%] md:flex-[0_0_25%] lg:flex-[0_0_20%] xl:flex-[0_0_15%] 2xl:flex-[0_0_10%] h-full">
+              <Link href={`/anime/${image.id}`}>
                 <div className="relative w-50 h-full shadow-[0_0_10px_#000000] overflow-hidden">
                   <Image 
-                    src={src} alt={`Slide ${index}`} fill className="object-cover"/>
+                    src={image.image} alt={`Slide ${image.id}`} fill className="object-cover"/>
                 </div>
               </Link>
             </div>

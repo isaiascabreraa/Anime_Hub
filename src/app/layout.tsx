@@ -44,9 +44,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
             </p>
           </Link>
 
-          <Link href={'/Account'}>
+          {/* <Link href={'/Account'}>
             <p className='p-1 rounded text-2xl text-white bg-slate-700'>Account</p>
-          </Link>
+          </Link> */}
 
         </nav>
       </header>
