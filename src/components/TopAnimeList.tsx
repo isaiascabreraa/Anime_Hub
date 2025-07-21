@@ -1,18 +1,34 @@
 
-import { ApiResponse, Anime } from '@/utils/definition';
+import { AniListResponse, Anime } from '@/utils/definition';
 import ItemShowcase from './ItemShowcase';
-import { fetchTopRanking } from '@/api/myanimelist_data';
+import { fetchAnimes } from '@/api/anilist_data';
 
 export default async function TopAnimeList() {
 
-  const fields = `title,main_picture,related_anime,start_date,end_date,
-  source,genres,studio, mean,status,rank,num_episodes,studios,media_type,
-  average_episode_duration`
+  const fields: string = `
+          id
+          title { romaji }
+          coverImage { extraLarge }
+          rankings {
+            rank
+            type
+            allTime
+            context
+            season
+            year
+          }
+          `
 
-  const type = 'anime'
+const topAnimes: Anime[] = [];
 
-  const res: ApiResponse<Anime> = await fetchTopRanking(type, fields);
-  const topAnimes = res.data.map((entry) => entry.node);
+for (let page = 1; page <= 4; page++) {
+  const res: AniListResponse<Anime> = await fetchAnimes({
+    fields, page, perPage: 25, sort: ['SCORE_DESC'],
+  });
+
+  topAnimes.push(...res.data.Page.media);
+}
+
 
   return (
     <section className="p-5 flex flex-col items-center gap-5 bg-white">

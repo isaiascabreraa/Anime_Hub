@@ -6,9 +6,6 @@ import Link  from 'next/link';
 
 export default function AnimeItem(anime: Anime) {
 
-    console.log(anime.coverImage); // Debería ser { large: 'https://...' }
-
-
     return(
         <>
   <div className="w-full flex flex-col flex-wrap text-black text-center">
