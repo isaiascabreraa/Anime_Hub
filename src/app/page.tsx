@@ -19,12 +19,7 @@ export default async function Home() {
 
   const banner_path = '/Multimedia/Branding/Banner-Collage4.png'
   const { current_season, current_year } = getJapaneseAnimeSeason()
-  const fields = `coverImage { extraLarge }`
 
-
-
-
-  //PRUEBA
    const seasons: Season[] = ['WINTER', 'SPRING', 'SUMMER', 'FALL'];
 
     const fetchSeasonAnimes = async (season: Season) => {
@@ -46,15 +41,6 @@ export default async function Home() {
   })).filter(data => data.animes.length > 0);
 
 
-  ////
-
-
-
-
-  const res: AniListResponse<Anime> = await fetchAnimes({season: current_season, seasonYear: current_year, fields: fields});
-  const seasonalAnimes = res.data.Page.media;
-  const imageUrlsExtraLarge = seasonalAnimes.map(anime => anime.coverImage.extraLarge);
-
   return (
     <main>
       <section>
@@ -71,17 +57,26 @@ export default async function Home() {
 
       <section>
         <div>
-          <h1 className={`${RobotoFont.className} font-semibold text-5xl text-center text-white`}>Estrenos de temporada</h1>
+          <h1 className={`${RobotoFont.className} p-5 font-semibold text-5xl text-center text-white`}>
+            Estrenos de temporada</h1>
         
-          <div className='flex flex-col gap-5 p-10 items-center'> 
-            <h2 className={`${RobotoFont.className} font-semibold text-5xl text-center text-white`}>{`${current_season}`}</h2>
+          {seasonData.map(({season, animes}) => {
+            const imageUrls = animes.map(anime => anime.coverImage?.extraLarge).filter(Boolean);
             
-            <div className='w-full h-full'>
-              <Suspense>
-                <Carousel images={imageUrlsExtraLarge}/>
-              </Suspense>
-            </div>
-          </div>
+            return (
+              <div key={season} className='flex flex-col gap-5 p-10 items-center'> 
+                <h2 className={`${RobotoFont.className} font-semibold text-5xl text-center text-white`}>
+                  {season}
+                </h2>
+                
+                <div className='w-full h-full'>
+                  <Suspense>
+                    <Carousel images={imageUrls as string[]}/>
+                  </Suspense>
+                </div>
+              </div>
+            )
+          })}
         
         </div>
       </section>

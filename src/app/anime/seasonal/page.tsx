@@ -3,9 +3,10 @@ import { Suspense } from 'react';
 import SearchSeason from '@/components/ui/SearchSeason'
 import SeasonalAnimes from '@/components/SeasonalAnime';
 import { RobotoFont } from '@/styles/fonts';
+import { Season } from '@/utils/definition';
 
 export default async function SeasonalPage({ searchParams }: {
-  searchParams: Promise<{season?: string}>
+  searchParams: Promise<{season?: Season}>
 }) {
 
   const season= (await searchParams).season

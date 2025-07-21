@@ -27,10 +27,10 @@ export default function Search() {
             className="p-2 w-full rounded-md border text-black bg-white"
             defaultValue={searchParams.get('season')?.toString() || ''}>
                 <option value="" disabled hidden> Select a season </option>
-                <option value="winter"> Winter </option>
-                <option value="spring"> Spring </option>
-                <option value="summer"> Summer </option>
-                <option value="autumn"> Autumn </option>
+                <option value="WINTER"> Winter </option>
+                <option value="SPRING"> Spring </option>
+                <option value="SUMMER"> Summer </option>
+                <option value="FALL"> Fall </option>
             </select>
         </div>
     );

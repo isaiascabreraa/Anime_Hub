@@ -85,6 +85,8 @@ export type AniListResponse<T> = {
 
 
 
+
+
 export type Season = 'WINTER' | 'SPRING' | 'SUMMER' | 'FALL';
 
 export type AnimeFilters = {
@@ -94,4 +96,5 @@ export type AnimeFilters = {
   search?: string;
   season?: Season;
   seasonYear?: number;
+  sort?: string[];
 };

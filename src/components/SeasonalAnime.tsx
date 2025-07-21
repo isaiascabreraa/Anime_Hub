@@ -6,14 +6,14 @@ import ItemShowcase from './ItemShowcase';
 
 import { getJapaneseAnimeSeason } from '@/utils/functions';
 
-export default async function SeasonalAnimes({ season }: {season: Season} ) {
+export default async function SeasonalAnimes({ season }: { season: Season } ) {
 
     const { current_season, current_year } = getJapaneseAnimeSeason();
 
     const fields: string = `
           id
           title { romaji }
-          coverImage { large medium color extraLarge }
+          coverImage { extraLarge }
           startDate { year month day }
           endDate { year month day }
           source
@@ -23,7 +23,7 @@ export default async function SeasonalAnimes({ season }: {season: Season} ) {
 
     try {
       const res: AniListResponse<Anime> = await fetchAnimes({
-        search: season || current_season, seasonYear: current_year, fields: fields});
+        season: season || current_season, seasonYear: current_year, fields: fields});
 
       const seasonalAnimes = res.data.Page.media;
 
