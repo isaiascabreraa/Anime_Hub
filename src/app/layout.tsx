@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
     <html lang="en">
     <body className={`${InterFont.className} antiliased`}>
 
-      <header className='p-10 flex flex-col items-center md:flex-row md:justify-between gap-5 bg-black'>
+      <header className='p-10 flex flex-col items-center md:flex-row md:justify-between gap-5 bg-slate-950'>
         
         <div className='flex items-center'>
           <Link href={'/'} className='flex flex-col items-center text-xl text-black'>
@@ -33,25 +33,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
         <nav className={`${Familjen_GroteskFont.className} font-medium antiliased flex justify-center items-center gap-10 text-center text-black`}>
           
           <Link href="/anime/seasonal">
-            <p className="p-2 rounded text-white text-lg sm:text-xl md:text-2xl bg-orange-500">
+            <p className="p-1 rounded text-white text-lg sm:text-xl md:text-2xl bg-slate-700">
               Temporada Anime
             </p>
           </Link>
 
           <Link href="/anime">
-            <p className="p-2 rounded text-white text-lg sm:text-xl md:text-2xl bg-orange-500">
-              Top Animes
-            </p>
-          </Link>
-
-          <Link href="/manga">
-            <p className="p-2 rounded text-white text-lg sm:text-xl md:text-2xl bg-orange-500">
-              Top Mangas
+            <p className="p-1 rounded text-white text-lg sm:text-xl md:text-2xl bg-slate-700">
+              Ranking
             </p>
           </Link>
 
           <Link href={'/Account'}>
-            <p className='p-2 rounded text-white text-lg sm:text-xl md:text-2xl bg-orange-500'>Account</p>
+            <p className='p-1 rounded text-2xl text-white bg-slate-700'>Account</p>
           </Link>
 
         </nav>
@@ -59,12 +53,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
 
       {children}
 
-      <footer className='p-10'>
-        <nav className='flex'>
+      <footer className='p-10 bg-slate-950'>
+        {/* <nav className='flex'>
            <Link href={'/Account'}>
-            <p className='p-3 rounded text-2xl text-white bg-orange-500'>Account</p>
+            <p className='p-1 rounded text-2xl text-white bg-slate-500'>Account</p>
           </Link>
-        </nav>
+        </nav> */}
       </footer>
 
     </body>

@@ -1,6 +1,8 @@
 'use client'
 
 import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { useCallback } from 'react'
@@ -8,9 +10,9 @@ import { useCallback } from 'react'
 export default function Carousel({ images }: { images: string[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true,
-    align: 'center',
-    slidesToScroll: 'auto'
-  })
+    align: 'start',
+    slidesToScroll: 1
+  }, [Autoplay({ delay: 2000, stopOnInteraction: true, stopOnMouseEnter: true })])
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
