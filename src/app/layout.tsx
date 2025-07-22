@@ -44,22 +44,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
             </p>
           </Link>
 
-          {/* <Link href={'/Account'}>
-            <p className='p-1 rounded text-2xl text-white bg-slate-700'>Account</p>
-          </Link> */}
-
         </nav>
       </header>
 
       {children}
 
-      <footer className='p-10 bg-slate-950'>
-        {/* <nav className='flex'>
-           <Link href={'/Account'}>
-            <p className='p-1 rounded text-2xl text-white bg-slate-500'>Account</p>
-          </Link>
-        </nav> */}
-      </footer>
+      <footer className='p-10 bg-slate-950'></footer>
 
     </body>
     </html>

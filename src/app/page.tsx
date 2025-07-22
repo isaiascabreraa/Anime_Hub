@@ -44,7 +44,7 @@ export default async function Home() {
   return (
     <main>
       <section>
-        <div className='relative w-full h-120 sm:h-125 md:h-130 lg:h-160 xl:h-180'>
+        <div className='relative w-full h-120 '>
           <Image src={banner_path} alt='AnimeHub Banner' fill className='brightness-75 object-cover'/>
 
           <p className="absolute p-2 z-20 text-lg sm:text-xl md:text-2xl bottom-5 left-5 bg-slate-700"> ¡Nuevo animes de temporada! </p>

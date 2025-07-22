@@ -7,8 +7,6 @@ export default function GridLayout({ items }: { items: Items }) {
 
     const ranking: ItemImage[] = items.items.map( (item) => ({id: item.id, image: item.coverImage.extraLarge})); 
 
-    console.log(`EL TIPO ES: /${items.type.toLocaleLowerCase()}`)
-
     return (
         <div className='flex justify-center items-center w-full '>
           <div className='grid grid-cols-5 w-full sm:grid-cols-5 xl:grid-cols-10 gap-2'>

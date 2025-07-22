@@ -32,8 +32,6 @@ export default function AnimeDetails({manga} : {manga: Manga}) {
 
           </div>
 
-
-
         </div>
 
       </>

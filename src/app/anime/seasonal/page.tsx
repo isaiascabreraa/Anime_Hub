@@ -11,11 +11,8 @@ export default async function SeasonalPage({ searchParams }: {
 }) {
 
   const season= (await searchParams).season
-
-
   const res: AniListResponse<Anime> = await fetchAnimes({season, seasonYear: 2025,fields: 'id, coverImage { extraLarge }'})
   const seasonalAnimes: Anime[] = res.data.Page.media
-
 
   return (
     <main>

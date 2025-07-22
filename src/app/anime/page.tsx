@@ -4,7 +4,6 @@ import { fetchAnimes, fetchMangas } from '@/api/anilist_data';
 import GridLayout from '@/components/ui/GridLayout';
 
 import { RobotoFont } from '@/styles/fonts';
-// import TopAnimeList from '@/components/TopAnimeList';
 import { AniListResponse, Anime, Manga } from '@/utils/definition';
 
 
@@ -15,7 +14,6 @@ export default async function AnimePage() {
 
   const res_manga: AniListResponse<Manga> = await fetchMangas({fields: 'id, coverImage { extraLarge }', sort: ['SCORE_DESC']});
   const topMangas: Manga[] = res_manga.data.Page.media
-
 
   return (
     <main>

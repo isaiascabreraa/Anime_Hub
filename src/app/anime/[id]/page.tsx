@@ -20,19 +20,17 @@ export default async function AnimeItemPage({ params }: {
           description
           trailer { id site }`
 
-
     try {
         const res: AniListResponse<Anime> = await fetchAnimes({id: Number(id), fields: fields});
         const anime: Anime = res.data.Page.media[0];
 
         return(
-            
             <div className='w-full flex justify-center bg-slate-700'>
                 <AnimeDetails anime={anime}/>
             </div>
             
         );
-        
+
     } catch(error) {
         console.log(error)
     }

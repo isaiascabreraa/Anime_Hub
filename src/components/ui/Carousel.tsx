@@ -20,8 +20,6 @@ export default function Carousel({ images } : { images: ItemImage[] }) {
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
 
-  console.log(`ESTE ES EL ID: ${images[0].id}`)
-
   return (
     <div className="relative w-full h-80">
 

@@ -15,8 +15,6 @@ const cleanSynopsis = (text: string) => {
 
 export default function AnimeDetails({anime} : {anime: Anime}) {
 
-  console.log(`${anime.description}`)
-
     return(
         <>
         <div className='p-5 flex flex-col w-full max-w-250 gap-5 shadow-[0_0_10px_#000000] bg-slate-800'>
@@ -25,34 +23,23 @@ export default function AnimeDetails({anime} : {anime: Anime}) {
             <p> Title: {`${anime.title.romaji}`}</p>
           </div>
 
-          <div className='flex'>
-            
+          <div className='flex'> 
             <div className="flex-shrink-0 w-48 h-64"> {/* Ajusta el tamaño según necesites */}
-    <Image 
-      src={anime.coverImage?.extraLarge} 
-      alt={anime.title?.romaji ?? "Anime"} 
-      width={200}
-      height={200}
-      className="w-full h-full object-cover shadow-[0_0_10px_#000000]"
-    />
-  </div>
+              <Image 
+                src={anime.coverImage?.extraLarge} alt={anime.title?.romaji ?? "Anime"} width={200} height={200}
+                className="w-full h-full object-cover shadow-[0_0_10px_#000000]"/>
+            </div>
 
-              <div className='p-5 w-full'>
-                <p className="whitespace-pre-line"> Description: {cleanSynopsis(anime.description)}</p>
-              </div>
-
+            <div className='p-5 w-full'>
+              <p className="whitespace-pre-line"> Description: {cleanSynopsis(anime.description)}</p>
+            </div>
           </div>
-
 
           <div className='p-5 w-3/4 mx-auto bg-slate-900'>
             <TrailerPlayer youtubeId={anime.trailer.id} className="rounded-lg overflow-hidden"/>
           </div>
 
-          
-
         </div>
-
       </>
-
     );
 }
