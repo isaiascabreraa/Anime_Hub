@@ -93,7 +93,7 @@ export async function fetchMangas({id, search, fields, sort = ['POPULARITY_DESC'
 
     return result;
   } catch (error) {
-    throw new Error(`Error al obtener animes: ${error}`);
+    throw new Error(`Error al obtener mangas: ${error}`);
   }
 }
 
