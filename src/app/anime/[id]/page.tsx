@@ -17,6 +17,7 @@ export default async function AnimeItemPage({ params }: {
           genres
           meanScore
           episodes
+          description
           trailer {
           id
           site
@@ -31,7 +32,7 @@ export default async function AnimeItemPage({ params }: {
             return(
                 
                 <div className='w-full flex justify-center bg-slate-700'>
-                    <AnimeDetails {...anime}/>
+                    <AnimeDetails anime={anime}/>
                 </div>
                 
             );

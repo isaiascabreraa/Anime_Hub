@@ -53,7 +53,7 @@ export async function fetchAnimes({id, search, season, seasonYear, fields, sort 
 
 //Pre: -
 //Post: -
-export async function fetchMangas({id, search, fields, sort = ['POPULARITY_DESC'], page = 1, perPage = 12 }: {
+export async function fetchMangas({id, search, fields, sort = ['POPULARITY_DESC'], page = 1, perPage = 50 }: {
   id?: number, search?: string, fields: string, sort?: string[], page?: number, perPage?: number}) {
 
   const query = `

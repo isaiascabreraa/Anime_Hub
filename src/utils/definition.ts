@@ -44,6 +44,7 @@ export type AnimeFilters = {
 export type Item = {
   id: number;
   title: Title; // objeto con varios formatos
+  description: string;
   coverImage: {
     medium: string;
     large: string;
