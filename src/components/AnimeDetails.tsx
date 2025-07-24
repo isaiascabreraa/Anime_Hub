@@ -35,10 +35,12 @@ export default function AnimeDetails({anime} : {anime: Anime}) {
             </div>
           </div>
 
+        
+          {anime.trailer ? (
           <div className='p-5 w-3/4 mx-auto bg-slate-900'>
             <TrailerPlayer youtubeId={anime.trailer.id} className="rounded-lg overflow-hidden"/>
-          </div>
-
+          </div>) : null}
+         
         </div>
       </>
     );
