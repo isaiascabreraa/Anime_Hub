@@ -70,6 +70,7 @@ export type Anime = Item & {
     site: string; // Ej: "youtube"
     thumbnail: string;
   };
+  bannerImage?: string;
 };
 
 export type Ranking = {

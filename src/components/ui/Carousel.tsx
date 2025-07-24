@@ -21,19 +21,19 @@ export default function Carousel({ images } : { images: ItemImage[] }) {
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
 
   return (
-    <div className="relative w-full h-80">
+    <div className="relative w-full h-100">
 
       {/* Viewport del carrusel */}
       <div className="overflow-hidden h-full" ref={emblaRef}>
 
         {/* Contenedor del carrusel */}
-        <div className="flex h-full">
+        <div className="flex h-full gap-4">
 
           {images.map((image) => (
             /* Elemento */
-            <div key={image.id} className="pr-2 pl-2 flex-[0_0_35%] sm:flex-[0_0_30%] md:flex-[0_0_25%] lg:flex-[0_0_20%] xl:flex-[0_0_15%] 2xl:flex-[0_0_10%] h-full">
+            <div key={image.id} className="flex-[0_0_35%] sm:flex-[0_0_30%] md:flex-[0_0_25%] lg:flex-[0_0_20%] xl:flex-[0_0_15%] 2xl:flex-[0_0_10%] h-full">
               <Link href={`/anime/${image.id}`}>
-                <div className="relative w-50 h-full shadow-[0_0_10px_#000000] overflow-hidden">
+                <div className="relative w-60 h-full shadow-[0_0_10px_#000000] overflow-hidden">
                   <Image 
                     src={image.image} alt={`Slide ${image.id}`} fill className="object-cover"/>
                 </div>
