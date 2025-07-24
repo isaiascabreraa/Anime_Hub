@@ -2,7 +2,7 @@
 
 import { Anime } from '@/utils/definition'
 import Image from 'next/image'
-import { TrailerPlayer } from '@/components/ui/TrailerPlayer';
+import { TrailerPlayer } from '@/components/items/TrailerPlayer';
 
 const cleanSynopsis = (text: string) => {
   return text

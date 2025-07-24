@@ -8,7 +8,7 @@ import Carousel from '@/components/ui/Carousel';
 
 //Pre: -
 //Post: Return a layout with banners of all seasonal animes of the year.
-export default function SeasonLayout({ seasonalAnimes } : { seasonalAnimes: AllSeasons}) {
+export default function SeasonalLayout({ seasonalAnimes } : { seasonalAnimes: AllSeasons}) {
 
     return(
 

@@ -1,7 +1,7 @@
 
 import { Suspense } from 'react';
 import GridLayout from '@/components/ui/layout/GridLayout';
-import SearchSeason from '@/components/ui/SearchSeason'
+import SearchSeason from '@/components/ui/SeasonMenu'
 import { getJapaneseAnimeSeason } from '@/utils/functions';
 
 import { fetchAnimes } from '@/api/anilist_data';

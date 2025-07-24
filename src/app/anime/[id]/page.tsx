@@ -1,6 +1,6 @@
 
 import { fetchAnimes } from '@/api/anilist_data'
-import AnimeDetails from '@/components/AnimeDetails';
+import AnimeDetails from '@/components/items/AnimeDetails';
 import type { AniListResponse, Anime } from '@/utils/definition';
 
 export default async function AnimeItemPage({ params }: { 

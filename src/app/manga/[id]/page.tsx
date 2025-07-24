@@ -1,6 +1,6 @@
 
 import { fetchMangas } from '@/api/anilist_data'
-import MangaDetails from '@/components/MangaDetails';
+import MangaDetails from '@/components/items/MangaDetails';
 import type { AniListResponse, Manga } from '@/utils/definition';
 
 export default async function MangaItemPage({ params }: { 
