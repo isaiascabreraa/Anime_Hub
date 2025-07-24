@@ -1,20 +1,27 @@
 
 import { Suspense } from 'react';
+import GridLayout from '@/components/ui/GridLayout';
 import SearchSeason from '@/components/ui/SearchSeason'
+import { getJapaneseAnimeSeason } from '@/utils/functions';
+
+import { fetchAnimes } from '@/api/anilist_data';
+
 import { RobotoFont } from '@/styles/fonts';
 import { AniListResponse, Season, Anime } from '@/utils/definition';
-import { fetchAnimes } from '@/api/anilist_data';
-import GridLayout from '@/components/ui/GridLayout';
 
-
+//Pre: -
+//Post: Fetch all the seasonal animes in the current year.
 async function fetchAllSeasonalAnimes(season?: Season) {
-  let allAnimes: Anime[] = []
+
+  const perPage = 50
   let currentPage = 1
   let hasNextPage = true
-  const perPage = 50 // Máximo permitido por la API
+  let allAnimes: Anime[] = []
+
+  const { current_season, current_year } = getJapaneseAnimeSeason();
 
   while (hasNextPage) {
-    const res: AniListResponse<Anime> = await fetchAnimes({season,seasonYear: 2025,
+    const res: AniListResponse<Anime> = await fetchAnimes({season: !season ? current_season : season, seasonYear: current_year, format: 'TV',
       page: currentPage, perPage, fields: `id title { romaji } coverImage { extraLarge }`, sort: ['POPULARITY_DESC']
     })
 
@@ -24,33 +31,28 @@ async function fetchAllSeasonalAnimes(season?: Season) {
 
     if (hasNextPage) await new Promise(resolve => setTimeout(resolve, 500))
   }
-
   return allAnimes
 }
 
-
+//Pre: -
+//Post: -
 export default async function SeasonalPage({ searchParams }: {
   searchParams: Promise<{season?: Season}>
 }) {
 
-  // const season= (await searchParams).season
-  // const res: AniListResponse<Anime> = await fetchAnimes({season, seasonYear: 2025, page:1, perPage: 30, fields: 'id, coverImage { extraLarge }'})
-  // const seasonalAnimes: Anime[] = res.data.Page.media
-
   const season= (await searchParams).season
   const seasonalAnimes = await fetchAllSeasonalAnimes(season)
-
-  const max: number = 80
+  const max_animes: number = 100
 
   return (
     <main>
-      <section className='p-5 flex flex-col gap-5 bg-black'>
-        <h1 className={`${RobotoFont.className} font-semibold text-5xl text-center text-white`}> Temporada Animes</h1>
+      <section className='p-5 flex flex-col gap-5 bg-slate-950'>
+        <h1 className={`${RobotoFont.className} font-semibold text-5xl text-center text-white`}> Seasonal Animes</h1>
 
         <SearchSeason />
        
         <Suspense fallback='Loading seasonal animes'>
-            <GridLayout items={{items: seasonalAnimes, type:'ANIME'}} max_number={max} />
+            <GridLayout items={{items: seasonalAnimes, type:'ANIME'}} max_number={max_animes} />
         </Suspense>
 
       </section>

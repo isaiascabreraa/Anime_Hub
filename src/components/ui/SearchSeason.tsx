@@ -24,7 +24,7 @@ export default function Search() {
             
             <select 
             onChange={(event) => handleSeason(event.target.value)}
-            className="p-2 w-full rounded-md border text-black bg-white"
+            className="p-2 w-full rounded-md border text-black bg-slate-500"
             defaultValue={searchParams.get('season')?.toString() || ''}>
                 <option value="" disabled hidden> Select a season </option>
                 <option value="WINTER"> Winter </option>

@@ -1,33 +1,10 @@
 
-
-
-///////////////////////////////
-
-export type ItemImage = {
-  id: number;
-  image: string;
-}
-
 export type Genre = string;
-
-export type Studio = {
-  name: string;
-};
-
-export type Title = {
-  romaji: string;
-  english?: string;
-  native?: string;
-};
-
-export type DateParts = {
-  year?: number;
-  month?: number;
-  day?: number;
-};
-
-
+export type Studio = { name: string; };
+export type Title = { romaji: string; english?: string; native?: string; };
+export type Date = { year?: number; month?: number; day?: number; };
 export type Season = 'WINTER' | 'SPRING' | 'SUMMER' | 'FALL';
+export type AllSeasons = { season: Season; animes: Anime[]; }[];
 
 export type AnimeFilters = {
   page: number;
@@ -36,10 +13,15 @@ export type AnimeFilters = {
   search?: string;
   season?: Season;
   seasonYear?: number;
+  format?: string;
   sort?: string[];
 };
 
-///////////////////////////////
+export type ItemImage = {
+  id: number;
+  image: string;
+}
+
 
 export type Item = {
   id: number;
@@ -51,8 +33,8 @@ export type Item = {
     extraLarge: string;
     color: string
   };
-  startDate: DateParts;   // en AniList viene como objeto
-  endDate: DateParts;
+  startDate: Date;   // en AniList viene como objeto
+  endDate: Date;
   genres: Genre[];
   mediaType: string;
   meanScore: number;
@@ -74,12 +56,12 @@ export type Anime = Item & {
 };
 
 export type Ranking = {
-  rank: number; // posición en el ranking
-  type: 'RATED' | 'POPULAR'; // tipo de ranking
-  allTime: boolean; // si es ranking histórico
-  context: string; // por ejemplo: "All Time", "2024", etc.
-  season?: 'WINTER' | 'SPRING' | 'SUMMER' | 'FALL'; // opcional, si aplica
-  year?: number; // opcional, si aplica
+  rank: number;
+  type: 'RATED' | 'POPULAR';
+  allTime: boolean;
+  context: string;
+  season?: Season;
+  year?: number;
 };
 
 
@@ -94,9 +76,6 @@ export type AniListResponse<T> = {
   data: {
     Page: {
       pageInfo: {
-        total?: number;
-        currentPage: number;
-        lastPage: number;
         hasNextPage: boolean;
       };
       media: T[];

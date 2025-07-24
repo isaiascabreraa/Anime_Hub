@@ -49,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
 
       {children}
 
-      <footer className='p-10 bg-slate-950'></footer>
+      <footer className='p-10 bg-slate-900'></footer>
 
     </body>
     </html>
