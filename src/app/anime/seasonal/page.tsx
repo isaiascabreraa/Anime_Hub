@@ -1,6 +1,6 @@
 
 import { Suspense } from 'react';
-import GridLayout from '@/components/ui/GridLayout';
+import GridLayout from '@/components/ui/layout/GridLayout';
 import SearchSeason from '@/components/ui/SearchSeason'
 import { getJapaneseAnimeSeason } from '@/utils/functions';
 

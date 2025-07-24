@@ -1,7 +1,7 @@
 
 import { Suspense } from 'react';
 import { fetchMangas } from '@/api/anilist_data';
-import GridLayout from '@/components/ui/GridLayout';
+import GridLayout from '@/components/ui/layout/GridLayout';
 
 import { RobotoFont } from '@/styles/fonts';
 import { AniListResponse, Manga } from '@/utils/definition';

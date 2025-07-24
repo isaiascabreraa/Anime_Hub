@@ -7,8 +7,8 @@ import { getAnimes, getAllSeasonalAnimes, getJapaneseAnimeSeason } from '@/utils
 
 import Banner from '@/components/ui/Banner'
 import Carousel from '@/components/ui/Carousel';
-import GridLayout from '@/components/ui/GridLayout';
-import SeasonLayout from '@/components/SeasonLayout';
+import GridLayout from '@/components/ui/layout/GridLayout';
+import SeasonLayout from '@/components/ui/layout/SeasonLayout';
 import NavigationMenu from '@/components/ui/NavigationMenu'
 
 //Pre: -
