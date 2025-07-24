@@ -1,7 +1,9 @@
 
-import { fetchAnimes } from '@/api/anilist_data'
+
+import type { Anime } from '@/utils/definition';
+import { getAnime } from '@/utils/functions';
+
 import AnimeDetails from '@/components/items/AnimeDetails';
-import type { AniListResponse, Anime } from '@/utils/definition';
 
 export default async function AnimeItemPage({ params }: { 
     params: Promise<{ id: string }>
@@ -21,8 +23,7 @@ export default async function AnimeItemPage({ params }: {
           trailer { id site }`
 
     try {
-        const res: AniListResponse<Anime> = await fetchAnimes({id: Number(id), fields: fields});
-        const anime: Anime = res.data.Page.media[0];
+        const anime: Anime = await getAnime(fields, Number(id));
 
         return(
             <div className='w-full flex justify-center bg-slate-700'>

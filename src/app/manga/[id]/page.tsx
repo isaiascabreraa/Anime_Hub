@@ -1,7 +1,8 @@
 
-import { fetchMangas } from '@/api/anilist_data'
+import type { Manga } from '@/utils/definition';
+import { getManga } from '@/utils/functions';
+
 import MangaDetails from '@/components/items/MangaDetails';
-import type { AniListResponse, Manga } from '@/utils/definition';
 
 export default async function MangaItemPage({ params }: { 
     params: Promise<{ id: string }>
@@ -19,9 +20,8 @@ export default async function MangaItemPage({ params }: {
         `;
     
     try {
-        const res: AniListResponse<Manga> = await fetchMangas({id: Number(id), format: 'MANGA', fields: fields});
-        const manga: Manga = res.data.Page.media[0];
-
+        const manga: Manga = await getManga(fields, Number(id));
+ 
         return(
             <div className='w-full flex justify-center bg-slate-700'>
                 <MangaDetails manga={manga}/>

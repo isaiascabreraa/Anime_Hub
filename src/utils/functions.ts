@@ -64,6 +64,15 @@ export async function getAnimes(fields: string, sort: string[]) {
   return animes
 }
 
+//Pre: -
+//Post: -
+export async function getAnime(fields: string, id: number) {
+
+  const res: AniListResponse<Anime> = await fetchAnimes({id: id, format: 'TV', fields: fields})
+  const animes: Anime = res.data.Page.media[0]
+
+  return animes
+}
 
 //Pre: -
 //Post: -
@@ -71,6 +80,16 @@ export async function getMangas(fields: string, sort: string[]) {
 
   const res: AniListResponse<Manga> = await fetchMangas({format: 'MANGA', fields: fields, sort: sort })
   const animes: Manga[] = res.data.Page.media
+
+  return animes
+}
+
+//Pre: -
+//Post: -
+export async function getManga(fields: string, id: number) {
+
+  const res: AniListResponse<Manga> = await fetchMangas({id: id, format: 'MANGA', fields: fields})
+  const animes: Manga = res.data.Page.media[0]
 
   return animes
 }
