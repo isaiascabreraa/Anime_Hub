@@ -19,7 +19,7 @@ export default async function MangaItemPage({ params }: {
         `;
     
     try {
-        const res: AniListResponse<Manga> = await fetchMangas({id: Number(id), fields: fields});
+        const res: AniListResponse<Manga> = await fetchMangas({id: Number(id), format: 'MANGA', fields: fields});
         const manga: Manga = res.data.Page.media[0];
 
         return(

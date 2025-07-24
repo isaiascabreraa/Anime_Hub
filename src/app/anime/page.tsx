@@ -1,19 +1,18 @@
 
 import { Suspense } from 'react';
-import { fetchAnimes, fetchMangas } from '@/api/anilist_data';
 import GridLayout from '@/components/ui/layout/GridLayout';
 
+import { getAnimes, getMangas } from '@/utils/functions'
+
 import { RobotoFont } from '@/styles/fonts';
-import { AniListResponse, Anime, Manga } from '@/utils/definition';
+import { Anime, Manga } from '@/utils/definition';
 
 
 export default async function AnimePage() {
 
-  const res_anime: AniListResponse<Anime> = await fetchAnimes({fields: 'id, coverImage { extraLarge }', sort: ['SCORE_DESC']});
-  const topAnimes: Anime[] = res_anime.data.Page.media
 
-  const res_manga: AniListResponse<Manga> = await fetchMangas({fields: 'id, coverImage { extraLarge }', sort: ['SCORE_DESC']});
-  const topMangas: Manga[] = res_manga.data.Page.media
+  const topAnimes: Anime[] = await getAnimes('id, coverImage { extraLarge }', ['SCORE_DESC'])
+  const topMangas: Manga[] =  await getMangas('id, coverImage { extraLarge }', ['SCORE_DESC'])
 
   return (
     <main>

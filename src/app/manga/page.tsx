@@ -8,7 +8,7 @@ import { AniListResponse, Manga } from '@/utils/definition';
 
 export default async function MangaPage() {
 
-  const res_manga: AniListResponse<Manga> = await fetchMangas({fields: 'id, coverImage { extraLarge }', sort: ['SCORE_DESC']});
+  const res_manga: AniListResponse<Manga> = await fetchMangas({fields: 'id, coverImage { extraLarge }', format:'MANGA', sort: ['SCORE_DESC']});
   const topMangas: Manga[] = res_manga.data.Page.media
 
   return (

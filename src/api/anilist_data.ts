@@ -12,7 +12,7 @@ export async function fetchAnimes({id, search, season, seasonYear, format, field
       pageInfo {
           hasNextPage
         }
-        media(id: $id, search: $search, format: $format season: $season, seasonYear: $seasonYear, type: ANIME, sort: $sort, isAdult: false) {
+        media(id: $id, search: $search, format: $format, season: $season, seasonYear: $seasonYear, type: ANIME, sort: $sort, isAdult: false) {
           ${fields}
         }
       }
@@ -56,13 +56,13 @@ export async function fetchAnimes({id, search, season, seasonYear, format, field
 
 //Pre: -
 //Post: -
-export async function fetchMangas({id, search, fields, sort = ['POPULARITY_DESC'], page = 1, perPage = 50 }: {
-  id?: number, search?: string, fields: string, sort?: string[], page?: number, perPage?: number}) {
+export async function fetchMangas({id, search, format, fields, sort = ['POPULARITY_DESC'], page = 1, perPage = 50 }: {
+  id?: number, search?: string, format?: string, fields: string, sort?: string[], page?: number, perPage?: number}) {
 
   const query = `
-    query ($id: Int, $search: String, $sort: [MediaSort], $page: Int, $perPage: Int) {
+    query ($id: Int, $search: String, $format: MediaFormat, $sort: [MediaSort], $page: Int, $perPage: Int) {
       Page(page: $page, perPage: $perPage) {
-        media(id: $id, search: $search, type: MANGA, sort: $sort, isAdult: false) {
+        media(id: $id, search: $search, format: $format, type: MANGA, sort: $sort, isAdult: false) {
           ${fields}
         }
       }
@@ -73,6 +73,7 @@ export async function fetchMangas({id, search, fields, sort = ['POPULARITY_DESC'
     if (id) variables.id = id;
     if (search) variables.search = search;
     if (sort) variables.sort = sort;
+    if(format) variables.format = format;
 
   try {
     const response = await fetch('https://graphql.anilist.co', {

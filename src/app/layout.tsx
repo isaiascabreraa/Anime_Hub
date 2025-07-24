@@ -1,11 +1,9 @@
 
-import '@/styles/globals.css';
-import type { Metadata } from 'next';
-import { InterFont, Russo_OneFont, Familjen_GroteskFont } from '@/styles/fonts';
-
 import Link from 'next/link';
-// import Image from 'next/image';
+import type { Metadata } from 'next';
 
+import '@/styles/globals.css';
+import { InterFont, Russo_OneFont, Familjen_GroteskFont } from '@/styles/fonts';
 
 export const metadata: Metadata = {
   title: 'AnimeHub',
@@ -16,6 +14,8 @@ export const metadata: Metadata = {
   },
 };
 
+//Pre: -
+//Post: -
 export default function RootLayout({ children }: { children: React.ReactNode }){
 
   return (

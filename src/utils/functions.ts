@@ -1,7 +1,6 @@
 
-import { fetchAnimes } from '@/api/anilist_data';
-import { AniListResponse, Anime, Season, AllSeasons } from '@/utils/definition'
-
+import { fetchAnimes, fetchMangas } from '@/api/anilist_data';
+import { AniListResponse, Anime, Manga, Season, AllSeasons } from '@/utils/definition'
 
 //Pre: -
 //Post: -
@@ -61,6 +60,17 @@ export async function getAnimes(fields: string, sort: string[]) {
 
   const res: AniListResponse<Anime> = await fetchAnimes({format: 'TV', fields: fields, sort: sort })
   const animes: Anime[] = res.data.Page.media
+
+  return animes
+}
+
+
+//Pre: -
+//Post: -
+export async function getMangas(fields: string, sort: string[]) {
+
+  const res: AniListResponse<Manga> = await fetchMangas({format: 'MANGA', fields: fields, sort: sort })
+  const animes: Manga[] = res.data.Page.media
 
   return animes
 }
