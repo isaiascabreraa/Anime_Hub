@@ -24,7 +24,7 @@ export default function AnimeDetails({anime} : {anime: Anime}) {
           </div>
 
           <div className='flex'> 
-            <div className="flex-shrink-0 w-48 h-64"> {/* Ajusta el tamaño según necesites */}
+            <div className="flex-shrink-0 w-48 h-64">
               <Image 
                 src={anime.coverImage?.extraLarge} alt={anime.title?.romaji ?? "Anime"} width={200} height={200}
                 className="w-full h-full object-cover shadow-[0_0_10px_#000000]"/>

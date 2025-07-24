@@ -6,7 +6,7 @@ export type Date = { year?: number; month?: number; day?: number; };
 export type Season = 'WINTER' | 'SPRING' | 'SUMMER' | 'FALL';
 export type AllSeasons = { season: Season; animes: Anime[]; }[];
 
-export type AnimeFilters = {
+export type ItemFilters = {
   page: number;
   perPage: number;
   id?: number;
@@ -17,42 +17,37 @@ export type AnimeFilters = {
   sort?: string[];
 };
 
+export type Item = {
+  id: number;
+  title: Title;
+  description: string;
+  coverImage: { extraLarge: string; };
+  startDate: Date;
+  endDate: Date;
+  genres: Genre[];
+  mediaType: string;
+};
+
+export type Items = AnimeItems | MangaItems;
+
 export type ItemImage = {
   id: number;
   image: string;
 }
 
-
-export type Item = {
-  id: number;
-  title: Title; // objeto con varios formatos
-  description: string;
-  coverImage: {
-    medium: string;
-    large: string;
-    extraLarge: string;
-    color: string
-  };
-  startDate: Date;   // en AniList viene como objeto
-  endDate: Date;
-  genres: Genre[];
-  mediaType: string;
-  meanScore: number;
-  rank?: number; // si usás rankings, sino puede no venir
-};
-
 export type Anime = Item & {
   source: string;
-  studios: Studio[];
-  episodes: number;
-  averageEpisodeDuration: number;
   rankings: Ranking[];
   trailer?: {
     id: string;
-    site: string; // Ej: "youtube"
-    thumbnail: string;
+    site: string;
   };
   bannerImage?: string;
+};
+
+export type Manga = Item & {
+  num_chapters: number;
+  num_volumes: number;
 };
 
 export type Ranking = {
@@ -64,14 +59,6 @@ export type Ranking = {
   year?: number;
 };
 
-
-
-export type Manga = Item & {
-  num_chapters: number;
-  num_volumes: number;
-};
-
-// Interface's types
 export type AniListResponse<T> = {
   data: {
     Page: {
@@ -92,4 +79,3 @@ export type MangaItems = {
   type: 'MANGA';
 };
 
-export type Items = AnimeItems | MangaItems;

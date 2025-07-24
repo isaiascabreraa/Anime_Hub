@@ -1,5 +1,5 @@
 
-import { AnimeFilters } from '@/utils/definition'
+import { ItemFilters } from '@/utils/definition'
 
 //Pre: Only for animes. Mangas doesnt have a broadcast season.
 //Post: -
@@ -19,7 +19,7 @@ export async function fetchAnimes({id, search, season, seasonYear, format, field
     }
   `;
 
- const variables: AnimeFilters = { page, perPage };
+ const variables: ItemFilters = { page, perPage };
     if (id) variables.id = id;
     if (search) variables.search = search;
     if (season) variables.season = season;
@@ -69,7 +69,7 @@ export async function fetchMangas({id, search, fields, sort = ['POPULARITY_DESC'
     }
   `;
 
- const variables: AnimeFilters = { page, perPage };
+ const variables: ItemFilters = { page, perPage };
     if (id) variables.id = id;
     if (search) variables.search = search;
     if (sort) variables.sort = sort;
@@ -117,7 +117,7 @@ export async function fetchRanking({id, rank, type, format, fields, sort = ['POP
     }
   `;
 
- const variables: AnimeFilters = { page, perPage };
+ const variables: ItemFilters = { page, perPage };
     if (id) variables.id = id;
     if (rank) variables.search = rank;
     if (type) variables.search = type;
