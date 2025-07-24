@@ -93,6 +93,12 @@ export type Manga = Item & {
 export type AniListResponse<T> = {
   data: {
     Page: {
+      pageInfo: {
+        total?: number;
+        currentPage: number;
+        lastPage: number;
+        hasNextPage: boolean;
+      };
       media: T[];
     };
   };

@@ -9,13 +9,17 @@ export async function fetchAnimes({id, search, season, seasonYear, fields, sort 
   const query = `
     query ($id: Int, $search: String, $season: MediaSeason, $seasonYear: Int, $sort: [MediaSort], $page: Int, $perPage: Int) {
       Page(page: $page, perPage: $perPage) {
-        media(id: $id, search: $search, season: $season, seasonYear: $seasonYear, type: ANIME, sort: $sort, isAdult: false, averageScore_greater: 70,
-          popularity_greater: 1000) {
+      pageInfo {
+          hasNextPage
+        }
+        media(id: $id, search: $search, season: $season, seasonYear: $seasonYear, type: ANIME, sort: $sort, isAdult: false) {
           ${fields}
         }
       }
     }
   `;
+
+  console.log(`animes perPage: ${perPage}`)
 
  const variables: AnimeFilters = { page, perPage };
     if (id) variables.id = id;
